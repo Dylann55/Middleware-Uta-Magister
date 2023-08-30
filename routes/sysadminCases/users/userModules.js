@@ -3,13 +3,9 @@ import verifyAdmin from '../../../verify/verifyAdmin/verifyAdmin.js';
 import createUser from './createUser/createUser.js';
 import listUser from './listUser/listUser.js';
 import updateUser from './updateUser/updateUser.js';
-import updateUserPassword from './updateUserPassword/updateUserPassword.js';
 import deleteUser from './deleteUser/deleteUser.js';
 
-import validateAccess from '../../../validations/validateAccess/validateAccess.js';
-import validateName from '../../../validations/validateName/validateName.js';
-import validateLastname from '../../../validations/validateLastname/validateLastname.js';
-import validatePassword from '../../../validations/validatePassword/validatePassword.js';
+import validateAccess from '../../../validations/auth/validateAccess/validateAccess.js';
 
 import validateUserid from '../../../validations/student/validateUserid/validateUserid.js';
 import validateArrayUserID from '../../../validations/student/validateArrayUserID/validateArrayUserID.js'
@@ -31,14 +27,10 @@ export {
     createUser,
     listUser,
     updateUser,
-    updateUserPassword,
     deleteUser,
     validateAccess,
-    validateName,
-    validateLastname,
     validateArrayUserID,
     validateUserid,
-    validatePassword,
     validateRut,
     validateFirstName,
     validateSecondName,

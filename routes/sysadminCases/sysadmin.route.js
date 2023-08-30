@@ -1,7 +1,8 @@
-import { express, userRoute } from "./sysadmin.modules.js";
+import { express, userRoute, roleWorkerRoute } from "./sysadmin.modules.js";
 
 const sysadminRoute = express.Router();
 
 sysadminRoute.use('/user', userRoute);
+sysadminRoute.use('/roleWorker', roleWorkerRoute);
 
 export default sysadminRoute;
