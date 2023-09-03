@@ -1,12 +1,11 @@
 import { CreateRoleWorker } from "../../../../repository/sysadminCases/rolesWorker/createRoleWorker.js";
 import { SearchRole } from "../../../../repository/utils/searchRole.js";
 
-const createRoleWorkerInstance = new CreateRoleWorker();
-const searchRoleInstance = new SearchRole();
-
 const createRoleWorker = async (req, res) => {
     const dataBase = req.dataBase;
     const { workerID, roleID } = req.body;
+    const createRoleWorkerInstance = new CreateRoleWorker();
+    const searchRoleInstance = new SearchRole();
     try {
         const data = await searchRoleInstance.searchRole(dataBase, roleID, workerID);
         if (data) {

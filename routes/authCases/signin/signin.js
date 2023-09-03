@@ -1,16 +1,14 @@
 import encodeToken from "../../../token/encodeToken/encodeToken.js";
 import { AuthUser } from "../../../repository/authCases/authUser.js";
-
-const authUser = new AuthUser();
+import encryptObject from "../../../crypto/encryptObject/encryptObject.js"
 
 const signin = async (req, res) => {
   const dataBase = req.dataBase;
-  const secret = process.env.SECRET_PASSWORD;
   const { email, password } = req.body;
-
+  const authUser = new AuthUser();
   try {
-    const session = await authUser.authUser(dataBase, email, password);
-    res.json({ token: encodeToken({ session }, secret) });
+    const session = encryptObject(await authUser.authUser(dataBase, email, password));
+    res.status(200).json({ token: encodeToken({ session })});
   } catch (error) {
     if (error.status == 400) {
       res.status(400).json({ message: 'Credenciales inválidas' });

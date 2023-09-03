@@ -11,6 +11,9 @@ import validateEmail from '../../validations/user/validateEmail/validateEmail.js
 import validatePassword from '../../validations/user/validatePassword/validatePassword.js';
 import validateToken from "../../token/validateToken/validateToken.js";
 
+import decryptPassword from '../../crypto/decryptPassword/decryptPassword.js';
+import decryptRefreshToken from '../../crypto/decryptRefreshToken/decryptRefreshToken.js';
+
 export {
     express,
     signin,
@@ -20,6 +23,8 @@ export {
     recoverPassword,
     refreshToken,
     signinTest,
+    decryptPassword,
+    decryptRefreshToken,
     validateRefreshToken,
     validateEmail,
     validatePassword

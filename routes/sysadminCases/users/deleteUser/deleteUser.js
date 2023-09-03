@@ -1,10 +1,9 @@
 import { DeleteUser } from "../../../../repository/sysadminCases/user/deleteUser.js";
 
-const deleteUserInstance = new DeleteUser();
-
 const deleteUser = async (req, res) => {
     const dataBase = req.dataBase;
     const { userIDs } = req.body;
+    const deleteUserInstance = new DeleteUser();
     try {
         for (const userID of userIDs) {
             await deleteUserInstance.deleteUser(dataBase, userID);

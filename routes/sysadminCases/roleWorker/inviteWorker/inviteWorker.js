@@ -6,17 +6,16 @@ import { CreateRoleWorker } from '../../../../repository/sysadminCases/rolesWork
 import { AdminInviteWorker } from '../../../../repository/authCases/adminInviteWorker.js';
 import { CreateWorker } from '../../../../repository/sysadminCases/rolesWorker/createWorker.js';
 
-const getRoleInstance = new GetRole();
-const selectWorkerByEmailInstance = new SelectWorkerByEmail();
-const signInWithOtpInstance = new SignInWithOtp();
-const searchRoleInstance = new SearchRole();
-const createRoleWorkerInstance = new CreateRoleWorker();
-const adminInviteWorkerInstance = new AdminInviteWorker();
-const createWorkerInstance = new CreateWorker();
-
 const inviteWorker = async (req, res) => {
     const dataBase = req.dataBase;
     const { email } = req.body;
+    const getRoleInstance = new GetRole();
+    const selectWorkerByEmailInstance = new SelectWorkerByEmail();
+    const signInWithOtpInstance = new SignInWithOtp();
+    const searchRoleInstance = new SearchRole();
+    const createRoleWorkerInstance = new CreateRoleWorker();
+    const adminInviteWorkerInstance = new AdminInviteWorker();
+    const createWorkerInstance = new CreateWorker();
     try {
         const roles = await getRoleInstance.getRole(dataBase);
         const worker = await selectWorkerByEmailInstance.selectWorkerByEmail(dataBase, email);

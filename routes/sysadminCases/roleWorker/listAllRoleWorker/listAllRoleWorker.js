@@ -1,9 +1,8 @@
 import { SelectRolesWorker } from "../../../../repository/sysadminCases/rolesWorker/selectRolesWorker.js";
 
-const selectRolesWorkerInstance = new SelectRolesWorker();
-
 const listAllRoleWorker = async (req, res) => {
     const dataBase = req.dataBase;
+    const selectRolesWorkerInstance = new SelectRolesWorker();
     try {
         const data = await selectRolesWorkerInstance.selectRolesWorker(dataBase);
         res.status(200).json(data);

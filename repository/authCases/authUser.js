@@ -16,7 +16,9 @@ class AuthUser_SupaBase extends AuthUser {
   async authUser(dataBase, email, password) {
     const { data, error } = await dataBase.auth.signInWithPassword({ email, password });
     if (error) { throw error; }
-    return data.session;
+    const { access_token, refresh_token } = data.session;
+    const session = { access_token, refresh_token };
+    return session;
   }
 }
 

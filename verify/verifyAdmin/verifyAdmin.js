@@ -1,11 +1,10 @@
 import searchUserRole from './searchUserRole.js';
 import { SearchRole } from '../../repository/utils/searchRole.js';
 
-const searchRole = new SearchRole();
-
 const verifyAdmin = async (req, res, next) => {
     const dataBase = req.dataBase;
     const { access_token } = req.body;
+    const searchRole = new SearchRole();
     const { worker, roles } = await searchUserRole(dataBase, access_token);
 
     if (worker) {

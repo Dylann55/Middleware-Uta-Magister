@@ -1,12 +1,11 @@
 import { RegisterUser } from "../../../repository/authCases/registerUser.js";
 import { SaveUserData } from "../../../repository/authCases/saveUserData.js";
 
-const registerUser = new RegisterUser();
-const saveUserData = new SaveUserData();
-
 const signup = async (req, res) => {
   const dataBase = req.dataBase;
   const { email, password } = req.body;
+  const registerUser = new RegisterUser();
+  const saveUserData = new SaveUserData();
   try {
     const userData = await registerUser.registerUser(dataBase, email, password);
     await saveUserData.saveUserData(dataBase, userData.user.id, email);

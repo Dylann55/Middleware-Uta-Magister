@@ -15,4 +15,4 @@ app.use(routes);
 
 app.get('/', (req, res) => { res.json({ message: `Welcome to Master's Management` }); });
 
-app.listen(PORT, () => { console.log(`running on port: ${PORT}`); })
+app.listen(PORT, () => { console.log(`running on port: ${PORT}`); });

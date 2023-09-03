@@ -1,9 +1,8 @@
 import { GetRole } from '../../../../repository/utils/getRole.js';
 
-const getRoleInstance = new GetRole();
-
 const listAllRoles = async (req, res) => {
     const dataBase = req.dataBase;
+    const getRoleInstance = new GetRole();
     try {
         const data = await getRoleInstance.getRole(dataBase);
         res.status(200).json(data);
