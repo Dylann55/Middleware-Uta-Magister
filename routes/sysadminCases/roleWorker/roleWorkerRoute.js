@@ -1,4 +1,7 @@
-import { express, createRoleWorker, listAllRoleWorker, listRoleWorker, listAllRoles, deleteRoleWorker, deleteAllRoleWorker, inviteWorker, validateEmail, validateUserID, validateWorkerID, validateRoleID } from './roleWorkerModules.js';
+/* eslint-disable import/extensions */
+import {
+  express, createRoleWorker, listAllRoleWorker, listRoleWorker, listAllRoles, deleteRoleWorker, deleteAllRoleWorker, inviteWorker, validateEmail, validateUserID, validateWorkerID, validateRoleID,
+} from './roleWorkerModules.js';
 
 const roleWorkerRoute = express.Router();
 
@@ -8,7 +11,7 @@ roleWorkerRoute.post('/inviteWorker', validateEmail, inviteWorker);
 roleWorkerRoute.delete('/deleteWorker', validateUserID, deleteAllRoleWorker);
 
 roleWorkerRoute.route('/')
-    .get(validateWorkerID, listRoleWorker)
-    .post(validateWorkerID, validateRoleID, createRoleWorker)
-    .delete(validateWorkerID, validateRoleID, deleteRoleWorker);
+  .get(validateWorkerID, listRoleWorker)
+  .post(validateWorkerID, validateRoleID, createRoleWorker)
+  .delete(validateWorkerID, validateRoleID, deleteRoleWorker);
 export default roleWorkerRoute;

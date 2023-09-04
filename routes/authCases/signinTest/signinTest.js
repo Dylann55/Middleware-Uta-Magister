@@ -1,5 +1,6 @@
-import { AuthUser } from "../../../repository/authCases/authUser.js";
-import encryptNotObject from "../../../crypto/encryptNotObject/encryptNotObject.js";
+/* eslint-disable import/extensions */
+import { AuthUser } from '../../../repository/authCases/authUser.js';
+import encryptNotObject from '../../../crypto/encryptNotObject/encryptNotObject.js';
 
 const signinTest = async (req, res) => {
   const dataBase = req.dataBase;
@@ -13,9 +14,10 @@ const signinTest = async (req, res) => {
     decryptedObject.decryptedRefresh_token = decryptedRefresh_token;
     res.json({ decryptedObject });
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error('Credenciales inválidas: ', error.message);
     res.status(401).json({ error: 'Credenciales inválidas', message: error.message });
   }
-}
+};
 
 export default signinTest;

@@ -1,4 +1,7 @@
-import { express, signup, signin, signinWithGoogle, recoverPassword, refreshToken, signinTest, decryptPassword, decryptRefreshToken, validateToken, validateRefreshToken, validateEmail, validatePassword } from "./auth.modules.js";
+/* eslint-disable import/extensions */
+import {
+  express, signup, signin, signinWithGoogle, recoverPassword, refreshToken, signinTest, decryptPassword, decryptRefreshToken, validateToken, validateRefreshToken, validateEmail, validatePassword,
+} from './auth.modules.js';
 
 const authRoute = express.Router();
 

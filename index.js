@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 import express from 'express';
 import cors from 'cors';
 import { DataBase } from './dataBase/supaBase.js';
@@ -13,6 +15,7 @@ app.use(express.json());
 app.use(async (req, res, next) => { req.dataBase = await dataBase.connect(); next(); }, routes);
 app.use(routes);
 
-app.get('/', (req, res) => { res.json({ message: `Welcome to Master's Management` }); });
+app.get('/', (req, res) => { res.json({ message: 'Welcome to Master\'s Management' }); });
 
+// eslint-disable-next-line no-console
 app.listen(PORT, () => { console.log(`running on port: ${PORT}`); });

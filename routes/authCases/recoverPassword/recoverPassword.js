@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import { ResetPasswordForEmail } from '../../../repository/authCases/resetPasswordForEmail.js';
 
 const recoverPassword = async (req, res) => {
@@ -9,7 +10,7 @@ const recoverPassword = async (req, res) => {
     res.status(200).json({ verificationMessage: 'Correo de restablecimiento de contraseña enviado' });
   } catch (error) {
     res.status(500).json({ error });
-  }      
-}
+  }
+};
 
 export default recoverPassword;

@@ -1,4 +1,6 @@
-import decodeToken from '../decodeToken/decodeToken.js'
+/* eslint-disable import/extensions */
+import decodeToken from '../decodeToken/decodeToken.js';
+
 const validateToken = (req, res, next) => {
   const authHeader = req.headers.authorization;
   const token = authHeader && authHeader.split(' ')[1];
@@ -9,9 +11,10 @@ const validateToken = (req, res, next) => {
     req.body = decoded;
     next();
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error('Error al decodificar el token:', error);
     return res.status(401).json({ message: 'El token es inválido' });
   }
-}
+};
 
 export default validateToken;

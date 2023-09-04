@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import dencrypt from '../decrypt/decrypt.js';
 
 const decryptPassword = (req, res, next) => {
@@ -8,8 +9,7 @@ const decryptPassword = (req, res, next) => {
     req.body = decoded;
     next();
   } catch (error) {
-    console.error('Error al desencriptar:', error);
     return res.status(401).json({ message: 'El dato encriptado es inválido' });
   }
-}
+};
 export default decryptPassword;

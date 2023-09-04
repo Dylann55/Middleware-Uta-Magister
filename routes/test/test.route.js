@@ -1,4 +1,7 @@
-import { express, validateToken, encrypPassword, dencryptSession } from "./test.modules.js";
+/* eslint-disable import/extensions */
+import {
+  express, validateToken, encrypPassword, dencryptSession,
+} from './test.modules.js';
 
 const testRoute = express.Router();
 

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import CryptoJS from 'crypto-js';
 
 function dencrypt(decoded) {

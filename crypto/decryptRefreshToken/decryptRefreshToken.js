@@ -1,4 +1,5 @@
-import dencrypt from "../decrypt/decrypt.js";
+/* eslint-disable import/extensions */
+import dencrypt from '../decrypt/decrypt.js';
 
 const decryptRefreshToken = (req, res, next) => {
   const decoded = req.body;
@@ -8,8 +9,9 @@ const decryptRefreshToken = (req, res, next) => {
     req.body = decoded;
     next();
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error('Error al desencriptar:', error);
     return res.status(401).json({ message: 'El dato encriptado es inválido' });
   }
-}
+};
 export default decryptRefreshToken;

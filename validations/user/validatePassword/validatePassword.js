@@ -1,7 +1,7 @@
-import { body, validationResult } from "express-validator";
+import { body, validationResult } from 'express-validator';
 
 const validatePassword = [
-    body('password')
+  body('password')
     .isString()
     .withMessage('La contraseña no es un string')
     .isLength({ min: 8 }) // Mínimo 8 caracteres
@@ -14,15 +14,15 @@ const validatePassword = [
     .withMessage('La contraseña debe contener al menos un número')
     .matches(/[!@#$%^&*(),.?":{}|<>_]/) // Debe contener al menos un carácter especial
     .withMessage('La contraseña debe contener al menos un carácter especial: !@#$%^&*(),.?":{}|<>'),
-    (req, res, next) => {
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            return res.status(400).json({
-                errors: errors.array(),
-            });
-        }
-        next();
+  (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({
+        errors: errors.array(),
+      });
     }
+    next();
+  },
 ];
 
 export default validatePassword;
