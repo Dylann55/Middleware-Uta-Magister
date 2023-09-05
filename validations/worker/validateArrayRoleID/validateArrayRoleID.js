@@ -1,7 +1,7 @@
 import { body, validationResult } from 'express-validator';
 
-const validateUserID = [
-  body('userID').isUUID().withMessage('El userID no es válido'),
+const validateArrayRoleID = [
+  body('roleIDs').isArray().withMessage('El RoleIDs no es válido'),
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -13,4 +13,4 @@ const validateUserID = [
   },
 ];
 
-export default validateUserID;
+export default validateArrayRoleID;

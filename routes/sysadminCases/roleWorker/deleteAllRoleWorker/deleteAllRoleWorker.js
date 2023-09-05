@@ -3,10 +3,15 @@ import { DeleteAllRoleWorker } from '../../../../repository/sysadminCases/rolesW
 
 const deleteAllRoleWorker = async (req, res) => {
   const dataBase = req.dataBase;
-  const { userID } = req.body;
+  const { userIDs } = req.body;
   const deleteAllRoleWorkerInstance = new DeleteAllRoleWorker();
   try {
-    await deleteAllRoleWorkerInstance.deleteAllRoleWorker(dataBase, userID);
+    const deletePromises = userIDs.map(async (userID) => {
+      await deleteAllRoleWorkerInstance.deleteAllRoleWorker(dataBase, userID);
+    });
+
+    await Promise.all(deletePromises);
+
     res.status(200).json({ verificationMessage: 'Se elimino al Trabajador' });
   } catch (error) {
     if (error.status === 409) {

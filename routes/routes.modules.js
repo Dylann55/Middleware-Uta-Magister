@@ -7,15 +7,15 @@ import testRoute from './test/test.route.js';
 import validateToken from '../token/validateToken/validateToken.js';
 import validateAccess from '../validations/auth/validateAccess/validateAccess.js';
 import verifyAdmin from '../verify/verifyAdmin/verifyAdmin.js';
-import decryptAccess_Token from '../crypto/decryptAccess_Token/decryptAccess_Token.js';
+import dencryptObject from '../crypto/dencryptObject/dencryptObject.js';
 
 export {
   express,
   authRoute,
   sysadminRoute,
   testRoute,
+  dencryptObject,
   validateToken,
   validateAccess,
   verifyAdmin,
-  decryptAccess_Token,
 };

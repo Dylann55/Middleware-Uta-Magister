@@ -8,12 +8,11 @@ import refreshToken from './refreshToken/refreshToken.js';
 import signinTest from './signinTest/signinTest.js';
 
 import validateRefreshToken from '../../validations/auth/validateRefreshToken/validateRefreshToken.js';
-import validateEmail from '../../validations/user/validateEmail/validateEmail.js';
-import validatePassword from '../../validations/user/validatePassword/validatePassword.js';
+import validateEmail from '../../validations/auth/validateEmail/validateEmail.js';
+import validatePassword from '../../validations/auth/validatePassword/validatePassword.js';
 import validateToken from '../../token/validateToken/validateToken.js';
 
-import decryptPassword from '../../crypto/decryptPassword/decryptPassword.js';
-import decryptRefreshToken from '../../crypto/decryptRefreshToken/decryptRefreshToken.js';
+import dencryptObject from '../../crypto/dencryptObject/dencryptObject.js';
 
 export {
   express,
@@ -24,8 +23,7 @@ export {
   recoverPassword,
   refreshToken,
   signinTest,
-  decryptPassword,
-  decryptRefreshToken,
+  dencryptObject,
   validateRefreshToken,
   validateEmail,
   validatePassword,

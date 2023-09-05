@@ -11,7 +11,8 @@ import inviteWorker from './inviteWorker/inviteWorker.js';
 import validateEmail from '../../../validations/worker/validateEmail/validateEmail.js';
 import validateWorkerID from '../../../validations/worker/validateWorkerID/validateWorkerID.js';
 import validateRoleID from '../../../validations/worker/validateRoleID/validateRoleID.js';
-import validateUserID from '../../../validations/worker/validateUserID/validateUserID.js';
+import validateArrayUserID from '../../../validations/worker/validateArrayUserID/validateArrayUserID.js';
+import validateArrayRoleID from '../../../validations/worker/validateArrayRoleID/validateArrayRoleID.js';
 
 export {
   express,
@@ -25,5 +26,6 @@ export {
   validateEmail,
   validateWorkerID,
   validateRoleID,
-  validateUserID,
+  validateArrayUserID,
+  validateArrayRoleID,
 };

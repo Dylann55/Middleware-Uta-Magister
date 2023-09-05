@@ -3,10 +3,14 @@ import { DeleteRoleWorker } from '../../../../repository/sysadminCases/rolesWork
 
 const deleteRoleWorker = async (req, res) => {
   const dataBase = req.dataBase;
-  const { workerID, roleID } = req.body;
+  const { workerID, roleIDs } = req.body;
   const deleteRoleWorkerInstance = new DeleteRoleWorker();
   try {
-    await deleteRoleWorkerInstance.deleteRoleWorker(dataBase, workerID, roleID);
+    const deletePromises = roleIDs.map(async (roleID) => {
+      await deleteRoleWorkerInstance.deleteRoleWorker(dataBase, workerID, roleID);
+    });
+
+    await Promise.all(deletePromises);
     res.status(200).json({ verificationMessage: 'Se eliminó el Rol exitosamente' });
   } catch (error) {
     if (error.status === 409) {
