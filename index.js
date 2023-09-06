@@ -12,7 +12,6 @@ const dataBase = new DataBase();
 
 app.use(cors());
 app.use(express.json());
-app.use(async (req, res, next) => { req.dataBase = await dataBase.connect(); next(); }, routes);
 app.use(routes);
 
 app.get('/', (req, res) => { res.json({ message: 'Welcome to UTA Master\'s Management' }); });
