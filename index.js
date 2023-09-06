@@ -2,7 +2,7 @@
 /* eslint-disable import/extensions */
 import express from 'express';
 import cors from 'cors';
-import { DataBase } from './dataBase/supaBase.js';
+import { DataBase } from './database/supaBase.js';
 import routes from './routes/routes.js';
 
 const app = express();
