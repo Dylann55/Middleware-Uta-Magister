@@ -5,11 +5,11 @@ class SearchRole {
 }
 
 class SeachRole_SupaBase extends SearchRole {
-  async searchRole(dataBase, role, workerID) {
-    const { data } = await dataBase.from('roleWorker')
+  async searchRole(dataBase, role, userID) {
+    const { data } = await dataBase.from('roleHasUser')
       .select()
       .eq('roleID', role)
-      .eq('workerID', workerID)
+      .eq('userID', userID)
       .maybeSingle();
     return data;
   }

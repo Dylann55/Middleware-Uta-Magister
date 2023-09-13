@@ -1,6 +1,5 @@
 /* eslint-disable import/extensions */
 import express from 'express';
-import signup from './signup/signup.js';
 import signin from './signin/signin.js';
 import signinWithGoogle from './signinWithGoogle/signinWithGoogle.js';
 import recoverPassword from './recoverPassword/recoverPassword.js';
@@ -17,7 +16,6 @@ import dencryptObject from '../../crypto/dencryptObject/dencryptObject.js';
 export {
   express,
   signin,
-  signup,
   signinWithGoogle,
   validateToken,
   recoverPassword,

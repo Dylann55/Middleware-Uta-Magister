@@ -5,10 +5,10 @@ class GetUser {
 }
 
 class GetUser_SupaBase extends GetUser {
-  async getUser(dataBase, userID) {
-    const { data } = await dataBase.from('worker')
+  async getUser(dataBase, id) {
+    const { data } = await dataBase.from('user')
       .select()
-      .eq('userID', userID)
+      .eq('id', id)
       .maybeSingle();
     return data;
   }
