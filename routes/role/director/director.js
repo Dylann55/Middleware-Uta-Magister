@@ -1,11 +1,10 @@
 /* eslint-disable import/extensions */
 import {
   express,
-  userRoute,
-  roleHasUserRoute,
+  roleAssignmentRoute,
+  validateAllowedRoles,
 } from './director.modules.js';
 
 const directorRoute = express.Router();
-directorRoute.use('/user', userRoute);
-directorRoute.use('/roleHasUser', roleHasUserRoute);
+directorRoute.use('/roleAssignment', validateAllowedRoles, roleAssignmentRoute);
 export default directorRoute;
