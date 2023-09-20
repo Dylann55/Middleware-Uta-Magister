@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/extensions */
 import { GetRole } from '../../../../../repository/roleAssignment/roleHasUser/getRole.js';

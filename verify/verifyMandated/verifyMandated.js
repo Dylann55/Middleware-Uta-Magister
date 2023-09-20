@@ -10,6 +10,7 @@ const verifyMandated = async (req, res, next) => {
   if (user) {
     const data = await searchRole.searchRole(dataBase, roles.Encargado, user.userID);
     if (data) {
+      req.body.roles = roles;
       next();
     } else {
       res.status(400).json({ error: 'Encargado Inválido' });

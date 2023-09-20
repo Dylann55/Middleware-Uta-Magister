@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
 import { UpdateEmail } from '../../../../../repository/roleAssignment/user/updateEmail.js';
 import { UpdateUserPassword } from '../../../../../repository/roleAssignment/user/updateUserEmail.js';

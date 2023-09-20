@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
 import { SelectUserByEmail } from '../../../../../repository/roleAssignment/user/selectUserByEmail.js';
 import { CreateUserAuth } from '../../../../../repository/roleAssignment/user/createUserAuth.js';

@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
 import { CreateRoleHasUser } from '../../../../../repository/roleAssignment/roleHasUser/createRoleHasUser.js';
 import { SearchRoles } from '../../../../../repository/roleAssignment/roleHasUser/searchRoles.js';

@@ -36,7 +36,7 @@ class SupaBase extends DataBase {
           persistSession: false,
         },
       });
-      const { data } = await dataBase.from('status').select();
+      const { data } = await dataBase.from('state').select();
       if (data) {
         console.log('Conectado a la Primera Base de Datos');
         return dataBase;
@@ -52,7 +52,7 @@ class SupaBase extends DataBase {
           persistSession: false,
         },
       });
-      const { data } = await dataBaseBackup.from('status').select();
+      const { data } = await dataBaseBackup.from('state').select();
 
       if (data) {
         console.log('Conectado a la Segunda Base de Datos');

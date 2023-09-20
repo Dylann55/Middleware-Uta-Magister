@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
 import { UpdateUser } from '../../../../../repository/roleAssignment/user/updateUser.js';
 

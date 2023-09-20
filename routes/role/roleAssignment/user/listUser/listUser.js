@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
 import { SelectUser } from '../../../../../repository/roleAssignment/user/selectUser.js';
 

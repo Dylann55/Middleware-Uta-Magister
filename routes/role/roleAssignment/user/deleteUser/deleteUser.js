@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
 import { DeleteUser } from '../../../../../repository/roleAssignment/user/deleteUser.js';
 

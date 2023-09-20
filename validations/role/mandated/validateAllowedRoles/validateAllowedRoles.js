@@ -7,7 +7,7 @@ const validateAllowedRoles = [
     const allowedRoles = allowedRolesString.split(',').map(Number);
     if (!req.body.hasOwnProperty('roleIDs')) {
       req.body.allowedRoles = allowedRoles;
-      req.body.table = 'roleshasusermandated';
+      req.body.table = 'roleshasuser';
       next();
       return;
     }
