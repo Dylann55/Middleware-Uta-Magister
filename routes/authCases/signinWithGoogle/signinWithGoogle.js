@@ -1,3 +1,5 @@
+/* eslint-disable import/no-named-as-default-member */
+/* eslint-disable import/no-named-as-default */
 /* eslint-disable import/extensions */
 import { SignInWithOAuth } from '../../../repository/authCases/signinWithOAuth.js';
 import encodeToken from '../../../token/encodeToken/encodeToken.js';

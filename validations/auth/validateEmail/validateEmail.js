@@ -1,7 +1,15 @@
 import { body, validationResult } from 'express-validator';
 
 const validateEmail = [
-  body('email').isEmail().withMessage('El correo electrónico no es válido'),
+  body('email')
+    .isEmail()
+    .withMessage('El correo electrónico no es válido')
+    .custom((value) => {
+      if (value.endsWith('@alumnos.uta.cl') || value.endsWith('@academicos.uta.cl')) {
+        return true;
+      }
+      throw new Error('El correo electrónico debe terminar en @alumnos.uta.cl o @otrosdominios.com');
+    }),
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
