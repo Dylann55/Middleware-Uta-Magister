@@ -1,3 +1,5 @@
+/* eslint-disable import/no-named-as-default-member */
+/* eslint-disable import/no-named-as-default */
 /* eslint-disable import/extensions */
 import { AuthUser } from '../../../repository/authCases/authUser.js';
 import encryptNotObject from '../../../crypto/encryptNotObject/encryptNotObject.js';
