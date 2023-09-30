@@ -9,13 +9,13 @@
         "sourceType": "module"
     },
     "rules": {
-        "linebreak-style": ["error", "windows"],
         "import/prefer-default-export": "off",
         "max-classes-per-file": "off",
         "consistent-return": "off",
         "camelcase": "off",
         "max-len": ["error", { "code": 300 }],
         "class-methods-use-this": "off",
-        "prefer-destructuring": "off"
+        "prefer-destructuring": "off",
+        "linebreak-style": "off"
     }
 }

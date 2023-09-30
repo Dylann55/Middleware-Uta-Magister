@@ -1,4 +1,5 @@
-import { v4 as uuidv4 } from 'uuid';
+/* eslint-disable import/extensions */
+import generateUUIDv4 from './generateUUIDv4.js';
 
 class CreateStorage {
   async createStorage() {
@@ -10,7 +11,7 @@ class CreateStorage_SupaBase extends CreateStorage {
   async createStorage(dataBase, bucketLocation, file) {
     const originalFileName = file.originalname;
     const fileExtension = originalFileName.split('.').pop();
-    const uniqueFileName = `${uuidv4()}.${fileExtension}`;
+    const uniqueFileName = `${generateUUIDv4()}.${fileExtension}`;
     const fileBuffer = file.buffer;
     const { error } = await dataBase.storage
       .from(bucketLocation)
