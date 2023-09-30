@@ -1,5 +1,3 @@
-/* eslint-disable import/no-named-as-default-member */
-/* eslint-disable import/no-named-as-default */
 /* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
 import { CreateRoleHasUser } from '../../../../../repository/roleAssignment/roleHasUser/createRoleHasUser.js';
