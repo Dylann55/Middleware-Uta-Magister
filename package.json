@@ -31,7 +31,7 @@
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-dist": "^5.1.1",
     "swagger-ui-express": "^5.0.0",
-    "uuid": "^9.0.0",
+    "uuid": "^9.0.1",
     "vercel": "^32.1.0"
   },
   "devDependencies": {
