@@ -16,6 +16,8 @@
         "max-len": ["error", { "code": 300 }],
         "class-methods-use-this": "off",
         "prefer-destructuring": "off",
-        "linebreak-style": "off"
+        "linebreak-style": "off",
+        "import/no-named-as-default": "off",
+        "import/no-named-as-default-member": "off"
     }
 }
