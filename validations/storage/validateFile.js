@@ -10,6 +10,7 @@ const validateFile = async (req, res, next) => {
   }
   const dataBase = req.dataBase;
   const fileName = req.file.originalname;
+  console.log(req.file);
   const formatName = fileName.split('.').pop().toLowerCase();
   const getFormatInstance = new GetFormat();
   const data = await getFormatInstance.getFormat(dataBase, formatName);
