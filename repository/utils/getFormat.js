@@ -6,6 +6,7 @@ class GetFormat {
 
 class GetFormat_SupaBase extends GetFormat {
   async getFormat(dataBase, name) {
+    console.log(name)
     const { data } = await dataBase.from('format')
       .select()
       .eq('name', name)
