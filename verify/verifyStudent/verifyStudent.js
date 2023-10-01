@@ -6,6 +6,7 @@ const verifyStudent = async (req, res, next) => {
   const { dataBase } = req;
   const { access_token } = req.body;
   const searchRole = new SearchRole();
+  console.log(access_token);
   const { user, roles } = await searchUserRole(dataBase, access_token);
   if (user) {
     const data = await searchRole.searchRole(dataBase, roles.Estudiante, user.userID);
