@@ -7,7 +7,7 @@ const listUserByUserID = async (req, res) => {
   const { userID } = req.body;
   const selectUserByUserID = new SelectUserByUserID();
   try {
-    const data = await selectUserByUserID.selectUserUserByUserID(dataBase, userID);
+    const data = await selectUserByUserID.selectUserByUserID(dataBase, userID);
     res.status(200).json(data);
   } catch (error) {
     res.status(500).json({ error });
