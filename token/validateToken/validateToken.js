@@ -1,4 +1,5 @@
 /* eslint-disable import/extensions */
+import { decode } from 'jsonwebtoken';
 import decodeToken from '../decodeToken/decodeToken.js';
 
 const validateToken = (req, res, next) => {
@@ -8,6 +9,7 @@ const validateToken = (req, res, next) => {
 
   try {
     const decoded = decodeToken(token);
+    console.log(decoded);
     req.body = decoded;
     next();
   } catch (error) {
