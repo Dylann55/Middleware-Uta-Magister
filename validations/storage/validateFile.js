@@ -17,9 +17,9 @@ const validateFile = async (req, res, next) => {
     req.data.formatID = data.formatID;
     next();
   } else {
-    const error = new Error('La extensión del archivo no es válida');
-    error.status = 400;
-    return next(error);
+    const findError = new Error('No se creo el usuario autenticado');
+    findError.status = 409;
+    throw findError;
   }
 };
 

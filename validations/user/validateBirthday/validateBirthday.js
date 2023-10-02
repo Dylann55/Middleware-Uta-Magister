@@ -2,8 +2,8 @@ import { body, validationResult } from 'express-validator';
 
 const validateBirthday = [
   body('birthday')
-    .matches(/^\d{2}-\d{2}-\d{4}$/) // Verifica si la fecha está en formato "DD-MM-YYYY"
-    .withMessage('La fecha debe estar en formato "DD-MM-YYYY" (ejemplo: "01-08-2023")'),
+    .matches(/^\d{4}-\d{2}-\d{2}$/) // Verifica si la fecha está en formato "DD-MM-YYYY"
+    .withMessage('La fecha debe estar en formato "DD-MM-YYYY" (ejemplo: "2023-08-01")'),
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

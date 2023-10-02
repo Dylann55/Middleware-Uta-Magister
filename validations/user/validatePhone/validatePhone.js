@@ -2,8 +2,6 @@ import { body, validationResult } from 'express-validator';
 
 const validatePhone = [
   body('phone')
-    .isString()
-    .withMessage('El valor no es un string')
     .matches(/^\d{10}$/) // Verifica si el número de teléfono tiene 10 dígitos
     .withMessage('El número de teléfono debe contener exactamente 10 dígitos'),
   (req, res, next) => {
