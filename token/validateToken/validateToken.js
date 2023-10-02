@@ -1,15 +1,14 @@
 /* eslint-disable import/extensions */
-import { decode } from 'jsonwebtoken';
 import decodeToken from '../decodeToken/decodeToken.js';
 
 const validateToken = (req, res, next) => {
   const authHeader = req.headers.authorization;
+  console.log(req.headers)
   const token = authHeader && authHeader.split(' ')[1];
   if (!token) { return res.status(401).json({ message: 'No se proporciono el token' }); }
 
   try {
     const decoded = decodeToken(token);
-    console.log(decoded);
     req.body = decoded;
     next();
   } catch (error) {
