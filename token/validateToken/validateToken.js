@@ -3,7 +3,7 @@ import decodeToken from '../decodeToken/decodeToken.js';
 
 const validateToken = (req, res, next) => {
   const authHeader = req.headers.authorization;
-  console.log(req.headers)
+  console.log(req.headers.authorization)
   const token = authHeader && authHeader.split(' ')[1];
   if (!token) { return res.status(401).json({ message: 'No se proporciono el token' }); }
 
