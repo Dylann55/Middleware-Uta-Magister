@@ -16,7 +16,7 @@ const verifyMandated = async (req, res, next) => {
       res.status(400).json({ error: 'Encargado Inválido' });
     }
   } else {
-    res.status(400).json({ error: 'Error al verificar Encargado' });
+    res.status(400).json({ expirationError: 'Error la sesión expiro' });
   }
 };
 export default verifyMandated;

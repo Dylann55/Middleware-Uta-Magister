@@ -15,7 +15,7 @@ const verifyDirector = async (req, res, next) => {
       res.status(400).json({ error: 'Director Inválido' });
     }
   } else {
-    res.status(400).json({ error: 'Error al verificar Director' });
+    res.status(400).json({ expirationError: 'Error la sesión expiro' });
   }
 };
 export default verifyDirector;

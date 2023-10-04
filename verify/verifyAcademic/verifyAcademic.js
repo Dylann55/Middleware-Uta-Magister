@@ -16,7 +16,7 @@ const verifyAcademic = async (req, res, next) => {
       res.status(400).json({ error: 'Academico Inválido' });
     }
   } else {
-    res.status(400).json({ error: 'Error al verificar Academico' });
+    res.status(400).json({ expirationError: 'Error la sesión expiro' });
   }
 };
 export default verifyAcademic;

@@ -18,7 +18,7 @@ const verifyStudent = async (req, res, next) => {
       res.status(400).json({ error: 'Estudiante Inválido' });
     }
   } else {
-    res.status(400).json({ error: 'Error al verificar Estudiante' });
+    res.status(400).json({ expirationError: 'Error la sesión expiro' });
   }
 };
 export default verifyStudent;

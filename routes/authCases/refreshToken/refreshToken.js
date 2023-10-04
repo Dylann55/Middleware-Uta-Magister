@@ -14,7 +14,7 @@ const refreshToken = async (req, res) => {
     res.status(200).json({ token: encodeToken(data) });
   } catch (error) {
     if (error.status === 400) {
-      res.status(400).json({ message: 'Refresh token inválido o ya está usado' });
+      res.status(400).json({ verificationMessage: 'Refresh token inválido o ya está usado' });
     } else {
       res.status(500).json({ error });
     }
