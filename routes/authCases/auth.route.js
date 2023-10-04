@@ -12,6 +12,6 @@ authRoute.post('/changePassword', handleAuth, validateAccessToken, validatePassw
 authRoute.post('/refreshToken', handleAuth, validateRefreshToken, refreshToken);
 authRoute.post('/administrative/signinWithEmail', handleAuth, validateEmail, validatePassword, signinAdministrative);
 authRoute.get('/administrative/signinWithGoogle', signinWithGoogleAdministrative);
-authRoute.post('/vefifyAdministrative', handleAuth, validateAccessToken, verifyAdministrative);
+authRoute.post('/verifyAdministrative', handleAuth, validateAccessToken, verifyAdministrative);
 authRoute.post('/signinTest', validateToken, validateEmail, validatePassword, signinTest);
 export default authRoute;
