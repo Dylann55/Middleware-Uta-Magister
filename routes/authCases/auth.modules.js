@@ -9,6 +9,7 @@ import refreshToken from './refreshToken/refreshToken.js';
 import changePassword from './changePassword/changePassword.js';
 import signinAdministrative from './signinAdministrative/signinAdministrative.js';
 import signinWithGoogleAdministrative from './signinWithGoogleAdministrative/signinWithGoogleAdministrative.js';
+import verifyAdministrative from './verifyAdministrative/verifyAdministrative.js';
 import signinTest from './signinTest/signinTest.js';
 
 import { handleAuth } from './handleAuth/handleAuth.js';
@@ -28,6 +29,7 @@ export {
   refreshToken,
   signinAdministrative,
   signinWithGoogleAdministrative,
+  verifyAdministrative,
   signinTest,
   handleAuth,
   validateRefreshToken,
