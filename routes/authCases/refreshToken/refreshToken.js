@@ -11,7 +11,7 @@ const refreshToken = async (req, res) => {
   const refreshSession = new RefreshSession();
   try {
     const data = encryptObject(await refreshSession.refreshSession(dataBase, refresh_token));
-    res.status(200).json({ token: encodeToken(data) });
+    res.status(200).json({ token: encodeToken({ data }) });
   } catch (error) {
     if (error.status === 400) {
       res.status(400).json({ verificationMessage: 'El token de actualización no es válido o ya ha sido utilizado previamente' });

@@ -10,8 +10,8 @@ const signin = async (req, res) => {
   const { email, password } = req.body;
   const authUser = new AuthUser();
   try {
-    const session = encryptObject(await authUser.authUser(dataBase, email, password));
-    res.status(200).json({ token: encodeToken({ session }) });
+    const data = encryptObject(await authUser.authUser(dataBase, email, password));
+    res.status(200).json({ token: encodeToken({ data }) });
   } catch (error) {
     if (error.status === 400) {
       res.status(400).json({ message: 'Credenciales inválidas' });
