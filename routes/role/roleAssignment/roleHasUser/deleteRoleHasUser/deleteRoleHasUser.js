@@ -10,9 +10,8 @@ const deleteRoleHasUser = async (req, res) => {
     const deletePromises = roleIDs.map(async (roleID) => {
       await deleteRoleHasUserInstance.deleteRoleHasUser(dataBase, userID, roleID);
     });
-
     await Promise.all(deletePromises);
-    res.status(200).json({ verificationMessage: 'Se eliminó el Rol exitosamente' });
+    res.status(200).json({ verificationMessage: 'Roles eliminados exitosamente' });
   } catch (error) {
     if (error.status === 409) {
       res.status(409).json({ message: error.message });

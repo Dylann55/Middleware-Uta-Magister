@@ -7,7 +7,9 @@ class CreateRoleHasUser {
 class CreateRoleHasUser_SupaBase extends CreateRoleHasUser {
   async createRoleHasUser(dataBase, userID, roleID) {
     const { error } = await dataBase.from('roleHasUser')
-      .insert({ userID, roleID });
+      .insert({ userID, roleID })
+      .neq('userID', userID)
+      .neq('roleID', roleID);
     if (error) { throw error; }
   }
 }

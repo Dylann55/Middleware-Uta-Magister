@@ -1,6 +1,6 @@
 import { body, validationResult } from 'express-validator';
 
-const validGenders = ['masculino', 'femenino', 'no binario', 'otro'];
+const validGenders = ['Masculino', 'Femenino', 'No binario', 'Otro'];
 
 const validateSex = [
   body('sex')

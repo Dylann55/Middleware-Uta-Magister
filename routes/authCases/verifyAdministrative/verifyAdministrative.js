@@ -13,23 +13,31 @@ const verifyAdministrative = async (req, res) => {
   const getUserAuthInstance = new GetUserAuth();
   const getUserInstance = new GetUser();
   const searchAdministrativeInstance = new SearchAdministrative();
+
   try {
     const userAuth = await getUserAuthInstance.getUserAuth(dataBase, access_token);
+
+    if (!userAuth) {
+      return res.status(400).json({ error: 'Credenciales inválidas: El token de acceso es incorrecto' });
+    }
+
     const user = await getUserInstance.getUser(dataBase, userAuth.id);
+
+    if (!user) {
+      return res.status(404).json({ error: 'Usuario no encontrado' });
+    }
+
     const administrative = await searchAdministrativeInstance.searchAdministrative(dataBase, user.userID);
+
     if (!administrative) {
-      const findError = new Error('No tienes permiso para ingresar');
-      findError.status = 409;
-      throw findError;
+      return res.status(403).json({ error: 'No tienes permiso para ingresar' });
     }
+
     const data = encryptObject(access_token);
-    res.status(200).json({ token: encodeToken({ data }) });
+    const token = encodeToken({ data });
+    return res.status(200).json({ token });
   } catch (error) {
-    if (error.status === 400) {
-      res.status(400).json({ message: 'Credenciales inválidas' });
-    } else {
-      res.status(500).json({ error });
-    }
+    res.status(500).json({ error });
   }
 };
 

@@ -1,15 +1,15 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
-import { CreateRoleHasUser } from '../../../../../repository/roleAssignment/roleHasUser/createRoleHasUser.js';
+import { CreateRoleHasNewUser } from '../../../../../repository/roleAssignment/roleHasUser/createRoleHasNewUser.js';
 
 const createRoleHasNewUser = async (req, res) => {
   const dataBase = req.dataBase;
   const userID = req.userID;
   const { roleIDs } = req.body;
-  const createRoleWorkerInstance = new CreateRoleHasUser();
+  const createRoleHasNewUserInstance = new CreateRoleHasNewUser();
   try {
     const createPromises = roleIDs.map(async (roleID) => {
-      await createRoleWorkerInstance.createRoleHasUser(dataBase, userID, roleID);
+      await createRoleHasNewUserInstance.createRoleHasNewUser(dataBase, userID, roleID);
     });
 
     await Promise.all(createPromises);
