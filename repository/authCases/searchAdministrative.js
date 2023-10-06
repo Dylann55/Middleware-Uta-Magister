@@ -5,13 +5,10 @@ class SearchAdministrative {
 }
 
 class SeachAdministrative_SupaBase extends SearchAdministrative {
-  async searchAdministrative(dataBase, userID) {
-    const allowedRolesString = process.env.ALLOWED_ROLES_DIRECTOR;
-    const allowedRoles = allowedRolesString.split(',').map(Number);
-    const { data } = await dataBase.from('roleHasUser')
+  async searchAdministrative(dataBase, id) {
+    const { data } = await dataBase.from('administrative')
       .select()
-      .in('roleID', allowedRoles)
-      .eq('userID', userID);
+      .eq('id', id);
     return data;
   }
 }
