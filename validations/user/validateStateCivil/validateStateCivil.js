@@ -1,6 +1,6 @@
 import { body, validationResult } from 'express-validator';
 
-const validMaritalStatuses = ['Soltero/a', 'Casado/a', 'Divorciado/a', 'Viudo/a', 'Otro'];
+const validMaritalStatuses = ['soltero/a', 'casado/a', 'divorciado/a', 'viudo/a', 'otro'];
 
 const validateStateCivil = [
   body('stateCivil')
