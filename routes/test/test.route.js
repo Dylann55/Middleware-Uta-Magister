@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import {
-  express, validateToken, encrypPassword, encryptObjectRequest, dencryptSession, processDataBase, processExcel, handleExcelUpload, inviteUsers, createUsers, createStudents,
+  express, validateToken, encrypPassword, encryptObjectRequest, dencryptSession, processExcel, handleExcelUpload, inviteUsers, createUsers, createStudents,
 } from './test.modules.js';
 
 const testRoute = express.Router();
