@@ -7,7 +7,6 @@ const dencryptObject = (req, res, next) => {
     const decryptedData = dencrypt(decoded);
     const decryptedObject = JSON.parse(decryptedData);
     req.body = decryptedObject;
-    console.log(decryptedObject);
     next();
   } catch (error) {
     // eslint-disable-next-line no-console

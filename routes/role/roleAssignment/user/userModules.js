@@ -5,6 +5,7 @@ import createUser from './createUser/createUser.js';
 import createUserAuth from './createUserAuth/createUserAuth.js';
 import createRoleHasNewUser from '../roleHasUser/createRoleHasNewUser/createRoleHasNewUser.js';
 import listUser from './listUser/listUser.js';
+import listUserByUserID from './listUserByUserID/listUserByUserID.js';
 import updateUser from './updateUser/updateUser.js';
 import updateEmail from './updateEmail/updateEmail.js';
 import updatePassword from './updatePassword/updatePassword.js';
@@ -34,6 +35,7 @@ export {
   createUser,
   createRoleHasNewUser,
   listUser,
+  listUserByUserID,
   updateUser,
   updateEmail,
   updatePassword,

@@ -5,6 +5,12 @@ import validateToken from '../../token/validateToken/validateToken.js';
 import encrypPassword from '../../crypto/encrypPassword/encrypPassword.js';
 import dencryptSession from '../../crypto/dencryptSession/dencryptSession.js';
 import encryptObjectRequest from './Crypto/encryptObjectRequest/encryptObjectRequest.js';
+import processDataBase from './Import/processDataBase/processDataBase.js';
+import processExcel from './Import/processExcel/processExcel.js';
+import handleExcelUpload from '../../routes/role/handleRoutes/handleExcelUpload/handleExcelUpload.js';
+import inviteUsers from './Import/inviteUsers/inviteUsers.js';
+import createUsers from './Import/createUsers/createUsers.js';
+import createStudents from './Import/createStudents/createStudents.js';
 
 export {
   express,
@@ -12,4 +18,10 @@ export {
   encryptObjectRequest,
   encrypPassword,
   dencryptSession,
+  handleExcelUpload,
+  processDataBase,
+  processExcel,
+  inviteUsers,
+  createUsers,
+  createStudents,
 };

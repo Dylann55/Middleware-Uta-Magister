@@ -1,14 +1,14 @@
 /* eslint-disable import/extensions */
 import searchUserRole from '../searchUserRole.js';
-import { VerifyAdministrative } from '../../repository/verifyRole/verifyAdministrative.js';
+import { VerifyRole } from '../../repository/verifyRole/verifyRole.js';
 
 const verifyDirector = async (req, res, next) => {
   const { dataBase } = req;
   const { access_token } = req.body;
-  const VerifyAdministrativeInstance = new VerifyAdministrative();
-  const { user, roles } = await searchUserRole(dataBase, access_token);
+  const VerifyRoleInstance = new VerifyRole();
+  const { user } = await searchUserRole(dataBase, access_token);
   if (user) {
-    const data = await VerifyAdministrativeInstance.verifyAdministrative(dataBase, roles.Director, user.id);
+    const data = await VerifyRoleInstance.verifyRole(dataBase, 'director', user.id);
     if (data) {
       next();
     } else {

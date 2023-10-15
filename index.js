@@ -6,7 +6,7 @@ import { DataBase } from './database/supaBase.js';
 import routes from './routes/routes.js';
 
 const app = express();
-const PORT = 3001 || process.env.PORT;
+const PORT = 3000 || process.env.PORT;
 
 const dataBase = new DataBase();
 

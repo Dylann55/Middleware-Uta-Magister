@@ -1,15 +1,15 @@
 /* eslint-disable import/extensions */
 import { GetUserAuth } from '../../repository/utils/getUserAuth.js';
-import { VerifyStudent } from '../../repository/verifyRole/verifyStudent.js';
+import { VerifyRole } from '../../repository/verifyRole/verifyRole.js';
 
 const verifyStudent = async (req, res, next) => {
   const { dataBase } = req;
   const { access_token } = req.body;
   const getUserAuth = new GetUserAuth();
-  const verifyStudentInstance = new VerifyStudent();
+  const verifyRoleInstance = new VerifyRole();
   const user = await getUserAuth.getUserAuth(dataBase, access_token);
   if (user) {
-    const data = await verifyStudentInstance.verifyStudent(dataBase, user.id);
+    const data = await verifyRoleInstance.verifyRole(dataBase, 'student', user.id);
     if (data) {
       req.body.userID = data.userID;
       req.body.id = data.id;
