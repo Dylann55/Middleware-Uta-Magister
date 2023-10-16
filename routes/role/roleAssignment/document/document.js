@@ -16,8 +16,8 @@ import {
 
 const documentRoute = express.Router();
 
-documentRoute.get('/Documents', listAllDocument);
-documentRoute.delete('/Documents', validateArrayDocumentID, deleteDocuments);
+documentRoute.get('/documents', listAllDocument);
+documentRoute.delete('/documents', validateArrayDocumentID, deleteDocuments);
 
 documentRoute.route('/')
   .get(validateRoleHasUserID, listDocument)
