@@ -6,14 +6,16 @@ import {
   createDocument,
   updateDocument,
   deleteDocument,
+  validateRoleHasUserID,
   validateDocumentID,
   validateArrayDocumentID,
+  validateUrl,
 } from './document.modules.js';
 
 const documentRoute = express.Router();
 documentRoute.route('/')
-  .get(listDocument)
-  .post(handleFileUpload, createDocument)
-  .put(validateDocumentID, handleFileUpload, updateDocument)
+  .get(validateRoleHasUserID, listDocument)
+  .post(validateRoleHasUserID, handleFileUpload, createDocument)
+  .put(validateUrl, validateDocumentID, handleFileUpload, updateDocument)
   .delete(validateArrayDocumentID, deleteDocument);
 export default documentRoute;

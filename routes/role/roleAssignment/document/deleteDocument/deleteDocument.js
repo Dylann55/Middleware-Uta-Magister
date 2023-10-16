@@ -6,26 +6,20 @@ import getUniqueFileName from '../../../../../repository/storage/getUniqueFileNa
 
 const deleteDocument = async (req, res) => {
   const dataBase = req.dataBase;
-  const { roleHasUserID, documentIDs } = req.body;
+  const { documentIDs } = req.body;
   const bucketLocation = 'image';
   const getDocumentInstance = new GetDocument();
   const deleteStorageInstance = new DeleteStorage();
   const deleteDocumentInstance = new DeleteDocument();
   try {
-    const deletePromises = documentIDs.map(async (documentID) => {
-      const document = await getDocumentInstance.getDocument(dataBase, documentID, roleHasUserID);
-      if (!document) {
-        const findError = new Error('No puedes modificar este documento porque no tienes permisos para acceder a él o el documento no existe.');
-        findError.status = 409;
-        throw findError;
-      }
+    const documents = await getDocumentInstance.getDocument(dataBase, documentIDs);
+    const deletePromises = documents.map(async (document) => {
       const archive = document.archive;
       const uniqueFileName = `Documents/${getUniqueFileName(archive)}`;
       await deleteStorageInstance.deleteStorage(dataBase, bucketLocation, uniqueFileName);
-      await deleteDocumentInstance.deleteDocument(dataBase, documentID);
     });
-
     await Promise.all(deletePromises);
+    await deleteDocumentInstance.deleteDocument(dataBase, documentIDs);
 
     res.status(200).json({ verificationMessage: 'El documento se ha eliminado exitosamente' });
   } catch (error) {

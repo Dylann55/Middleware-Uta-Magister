@@ -5,12 +5,10 @@ class GetDocument {
 }
 
 class GetDocument_SupaBase extends GetDocument {
-  async getDocument(dataBase, documentID, roleHasUserID) {
+  async getDocument(dataBase, documentIDs) {
     const { data, error } = await dataBase.from('document')
       .select()
-      .eq('documentID', documentID)
-      .eq('roleHasUserID', roleHasUserID)
-      .maybeSingle();
+      .in('documentID', documentIDs);
     if (error) { throw error; }
     return data;
   }

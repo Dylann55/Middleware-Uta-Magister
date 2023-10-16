@@ -5,10 +5,10 @@ class DeleteDocument {
 }
 
 class DeleteDocument_SupaBase extends DeleteDocument {
-  async deleteDocument(dataBase, documentID) {
+  async deleteDocument(dataBase, documentIDs) {
     const { error } = await dataBase.from('document')
       .delete()
-      .eq('documentID', documentID);
+      .in('documentID', documentIDs);
     if (error) { throw error; }
   }
 }

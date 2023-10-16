@@ -13,6 +13,9 @@ class UpdateStorage_SupaBase extends UpdateStorage {
     if (error) {
       throw error;
     }
+
+    const data = await dataBase.storage.from(bucketLocation).getPublicUrl(uniqueFileName);
+    return data.data.publicUrl;
   }
 }
 
