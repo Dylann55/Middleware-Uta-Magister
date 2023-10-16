@@ -1,25 +1,18 @@
 /* eslint-disable import/extensions */
-import { GetDocument } from '../../../../../repository/storage/document/getDocument.js';
 import { DeleteStorage } from '../../../../../repository/storage/deleteStorage.js';
-import { DeleteDocument } from '../../../../../repository/storage/document/deleteDocument.js';
+import { DeleteDocuments } from '../../../../../repository/storage/document/deleteDocuments.js';
 import getUniqueFileName from '../../../../../repository/storage/getUniqueFileName.js';
 
 const deleteDocument = async (req, res) => {
   const dataBase = req.dataBase;
-  const { documentIDs } = req.body;
+  const { documentID, archive } = req.body;
   const bucketLocation = 'image';
-  const getDocumentInstance = new GetDocument();
   const deleteStorageInstance = new DeleteStorage();
-  const deleteDocumentInstance = new DeleteDocument();
+  const deleteDocumentsInstance = new DeleteDocuments();
   try {
-    const documents = await getDocumentInstance.getDocument(dataBase, documentIDs);
-    const deletePromises = documents.map(async (document) => {
-      const archive = document.archive;
-      const uniqueFileName = `Documents/${getUniqueFileName(archive)}`;
-      await deleteStorageInstance.deleteStorage(dataBase, bucketLocation, uniqueFileName);
-    });
-    await Promise.all(deletePromises);
-    await deleteDocumentInstance.deleteDocument(dataBase, documentIDs);
+    const uniqueFileName = `Documentss/${getUniqueFileName(archive)}`;
+    await deleteStorageInstance.deleteStorage(dataBase, bucketLocation, uniqueFileName);
+    await deleteDocumentsInstance.deleteDocuments(dataBase, documentID);
 
     res.status(200).json({ verificationMessage: 'El documento se ha eliminado exitosamente' });
   } catch (error) {
