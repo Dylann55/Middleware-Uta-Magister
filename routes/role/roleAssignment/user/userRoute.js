@@ -9,7 +9,7 @@ const userRoute = express.Router();
 
 userRoute.put('/updateEmail', validateID, validateEmail, updateEmail);
 userRoute.put('/updatePassword', validateID, validatePassword, updatePassword);
-userRoute.put('/user', validateUserID, listUserByUserID);
+userRoute.get('/user', validateUserID, listUserByUserID);
 
 userRoute.route('/')
   .get(listUser)
