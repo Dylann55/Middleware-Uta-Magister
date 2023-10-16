@@ -6,7 +6,7 @@ class SelectUserByUserID {
 
 class SelectUserByUserID_SupaBase extends SelectUserByUserID {
   async selectUserByUserID(dataBase, userID) {
-    const { data, error } = await dataBase.from('user')
+    const { data, error } = await dataBase.from('rolesHasUser')
       .select()
       .eq('userID', userID)
       .maybeSingle();
