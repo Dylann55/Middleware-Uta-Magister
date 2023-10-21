@@ -19,7 +19,7 @@ const verifyAdministrative = async (req, res) => {
     }
     const administrative = await searchAdministrativeInstance.searchAdministrative(dataBase, user.id);
     if (!administrative) {
-      return res.status(403).json({ error: 'No tienes permiso para ingresar' });
+      return res.status(403).json({ errorDenied: 'No tienes permiso para ingresar' });
     }
     const data = encryptObject(access_token);
     res.status(200).json({ token: encodeToken({ data }) });

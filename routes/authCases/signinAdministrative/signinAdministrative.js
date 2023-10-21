@@ -15,7 +15,9 @@ const signinAdministrative = async (req, res) => {
     const user = await authUserInstance.authUser(dataBase, email, password);
     const administrative = await searchAdministrativeInstance.searchAdministrative(dataBase, user.user.id);
     if (!administrative) {
-      res.status(409).json({ errorDenied: 'No tienes permiso para ingresar' });
+      const findError = new Error('No tienes permiso para ingresar');
+      findError.status = 409;
+      throw findError;
     }
     const data = encryptObject(user);
     res.status(200).json({ token: encodeToken({ data }) });
