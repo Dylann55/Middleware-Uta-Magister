@@ -18,7 +18,7 @@ const verifyAdministrative = async (req, res) => {
       return res.status(400).json({ error: 'Credenciales inválidas: El token de acceso es incorrecto' });
     }
     const administrative = await searchAdministrativeInstance.searchAdministrative(dataBase, user.id);
-    if (!administrative) {
+    if (administrative.length === 0) {
       return res.status(403).json({ errorDenied: 'No tienes permiso para ingresar' });
     }
     const data = encryptObject(access_token);

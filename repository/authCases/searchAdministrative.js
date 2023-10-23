@@ -8,8 +8,7 @@ class SeachAdministrative_SupaBase extends SearchAdministrative {
   async searchAdministrative(dataBase, id) {
     const { data } = await dataBase.from('administrative')
       .select()
-      .eq('id', id)
-      .single();
+      .eq('id', id);
     return data;
   }
 }
