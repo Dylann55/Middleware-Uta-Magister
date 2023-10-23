@@ -2,6 +2,7 @@
 import searchUserRole from '../searchUserRole.js';
 import { GetRole } from '../../repository/utils/getRole.js';
 import { VerifyRole } from '../../repository/verifyRole/verifyRole.js';
+import { SearchAdministrative } from '../../repository/authCases/searchAdministrative.js';
 
 const verifyMandated = async (req, res, next) => {
   const { dataBase } = req;
@@ -16,6 +17,11 @@ const verifyMandated = async (req, res, next) => {
       req.body.roles = roles;
       next();
     } else {
+      const searchAdministrativeInstance = new SearchAdministrative();
+      const administrative = await searchAdministrativeInstance.searchAdministrative(dataBase, user.id);
+      if (!administrative) {
+        return res.status(403).json({ errorDenied: 'No tienes permiso para ingresar' });
+      }
       res.status(400).json({ error: 'El usuario no es un encargado válido' });
     }
   } else {

@@ -12,9 +12,7 @@ const createUser = async (req, res, next) => {
   try {
     const user = await createUserInstance.createUser(dataBase, id, rut, firstName, secondName, surnameM, surnameF, sex, stateCivil, birthday, address, email, phone);
     if (!user) {
-      const findError = new Error('No se creo el usuario');
-      findError.status = 409;
-      throw findError;
+      return res.status(409).json({ error: 'No se creo el usuario' });
     }
     req.userID = user.userID;
     next();

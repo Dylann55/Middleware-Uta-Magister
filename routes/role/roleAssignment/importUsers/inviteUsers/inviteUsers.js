@@ -18,9 +18,7 @@ const inviteUsers = async (req, res, next) => {
       }
     }
     if (excelData.length === 0) {
-      const findError = new Error('No se pudieron invitar usuarios: Todos los correos electrónicos ya están registrados');
-      findError.status = 409;
-      throw findError;
+      return res.status(409).json({ error: 'No se pudieron invitar usuarios: Todos los correos electrónicos ya están registrados' });
     }
     req.excelData = excelData;
     next();

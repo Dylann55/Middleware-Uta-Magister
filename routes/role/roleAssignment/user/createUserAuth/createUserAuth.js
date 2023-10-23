@@ -13,9 +13,7 @@ const createUserAuth = async (req, res, next) => {
     if (!user) {
       const userAuth = await createUserAuthInstance.createUserAuth(dataBase, email, process.env.URL_INVITE);
       if (!userAuth) {
-        const findError = new Error('No se creo el usuario autenticado');
-        findError.status = 409;
-        throw findError;
+        return res.status(409).json({ error: 'No se creo el usuario autenticado' });
       }
       req.id = userAuth.id;
       next();

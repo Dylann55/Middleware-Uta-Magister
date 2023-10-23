@@ -11,9 +11,7 @@ const verifyEvaluateStatus = async (req, res, next) => {
     const status = await getStatusInstance.getStatus(dataBase);
     const data = await verifyStatusInstance.verifyStatus(dataBase, evaluateID, status['En Espera'], roleHasUserID);
     if (!data) {
-      const findError = new Error('No se puede actualizar porque el estado de Espera');
-      findError.status = 409;
-      throw findError;
+      return res.status(409).json({ error: 'No se puede actualizar porque el estado de Esperao' });
     }
     req.body.beforeProyect = data.beforeProyect;
     next();

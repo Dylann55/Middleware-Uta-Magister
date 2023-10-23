@@ -16,7 +16,7 @@ const verifyStudent = async (req, res, next) => {
       req.body.roleHasUserID = data.roleHasUserID;
       next();
     } else {
-      res.status(400).json({ error: 'El usuario no es un estudiante válido' });
+      res.status(403).json({ errorDenied: 'No tienes permiso para ingresar' });
     }
   } else {
     res.status(400).json({ expirationError: 'La sesión ha expirado o las credenciales son inválidas' });
