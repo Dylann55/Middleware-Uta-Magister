@@ -8,7 +8,7 @@ const validateEmail = [
       if (value.endsWith('@alumnos.uta.cl') || value.endsWith('@academicos.uta.cl')) {
         return true;
       }
-      throw new Error('El correo electrónico debe terminar en @alumnos.uta.cl o @otrosdominios.com');
+      throw new Error('El correo electrónico debe terminar en @alumnos.uta.cl o @academicos.uta.cl');
     }),
   (req, res, next) => {
     const errors = validationResult(req);
