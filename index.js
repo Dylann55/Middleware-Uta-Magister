@@ -6,12 +6,12 @@ import { DataBase } from './database/supaBase.js';
 import routes from './routes/routes.js';
 
 const app = express();
-const PORT = 3001 || process.env.PORT;
+const PORT = 3000 || process.env.PORT;
 
 const dataBase = new DataBase();
 
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: '50mb' }));
 app.use(async (req, res, next) => { req.dataBase = await dataBase.connect(); next(); }, routes);
 app.use(routes);
 
