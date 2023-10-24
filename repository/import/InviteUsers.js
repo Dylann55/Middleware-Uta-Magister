@@ -6,9 +6,8 @@ class InviteUsers {
 
 class InviteUsers_SupaBase extends InviteUsers {
   async inviteUsers(dataBase, email, redirectTo) {
-    const currentDate = new Date();
-    const { data: { user } } = await dataBase.auth.admin.inviteUserByEmail(email, { redirectTo });
-    if (new Date(user.created_at) > currentDate) {
+    const { data: { user }, error } = await dataBase.auth.admin.inviteUserByEmail(email, { redirectTo });
+    if (!error) {
       return user;
     }
     return null;

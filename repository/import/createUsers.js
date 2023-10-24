@@ -6,10 +6,12 @@ class CreateUsers {
 
 class CreateUsers_SupaBase extends CreateUsers {
   async createUsers(dataBase, excelData) {
-    const { data } = await dataBase.from('user')
+    const { data, error } = await dataBase.from('user')
       .insert(excelData)
       .select('userID');
-
+    if (error) {
+      throw error;
+    }
     return data;
   }
 }

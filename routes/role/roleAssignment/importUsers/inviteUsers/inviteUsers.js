@@ -8,19 +8,19 @@ const inviteUsers = async (req, res, next) => {
   const excelData = req.excelData;
   const inviteUsersInstance = new InviteUsers();
   try {
-    for (let i = excelData.length - 1; i >= 0; i--) {
+    const validExcelData = [];
+    for (let i = 0; i < excelData.length; i++) {
       const email = excelData[i].email;
       const user = await inviteUsersInstance.inviteUsers(dataBase, email, process.env.URL_INVITE);
       if (user) {
         excelData[i].id = user.id;
-      } else {
-        excelData.splice(i, 1);
+        validExcelData.push(excelData[i]);
       }
     }
     if (excelData.length === 0) {
       return res.status(409).json({ error: 'No se pudieron invitar usuarios: Todos los correos electrónicos ya están registrados' });
     }
-    req.excelData = excelData;
+    req.excelData = validExcelData;
     next();
   } catch (error) {
     if (error.status === 409) {
