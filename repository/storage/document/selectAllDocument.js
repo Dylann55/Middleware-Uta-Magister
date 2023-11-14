@@ -9,6 +9,7 @@ class SelectAllDocument_SupaBase extends SelectAllDocument {
     const { data, error } = await dataBase.from('document')
       .select(`
         documentID,
+        category,
         archive,
         roleHasUserID,
         formatID,
