@@ -5,7 +5,7 @@ const updateDocument = async (req, res) => {
   const dataBase = req.dataBase;
   const {
     documentID, category,
-  } = req.data;
+  } = req.body;
   const updateDocumentInstance = new UpdateDocument();
   try {
     await updateDocumentInstance.updateDocument(dataBase, documentID, category);
