@@ -23,6 +23,6 @@ documentRoute.delete('/documents', validateArrayDocumentID, deleteDocuments);
 documentRoute.route('/')
   .get(validateRoleHasUserID, listDocument)
   .post(validateCategory, validateRoleHasUserID, handleFileUpload, createDocument)
-  .put(validateCategory, validateUrl, validateDocumentID, handleFileUpload, updateDocument)
+  .put(validateCategory, validateDocumentID, updateDocument)
   .delete(validateDocumentID, validateUrl, deleteDocument);
 export default documentRoute;
