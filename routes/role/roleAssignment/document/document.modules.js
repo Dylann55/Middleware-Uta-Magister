@@ -11,6 +11,7 @@ import validateRoleHasUserID from '../../../../validations/role/validateRoleHasU
 import validateDocumentID from '../../../../validations/storage/document/validateDocumentID/validateDocumentID.js';
 import validateArrayDocumentID from '../../../../validations/storage/document/validateArrayDocumentID/validateArrayDocumentID.js';
 import validateUrl from '../../../../validations/storage/document/validateUrl/validateUrl.js';
+import validateCategory from '../../../../validations/storage/document/validateCategory/validateCategory.js';
 
 export {
   express,
@@ -25,4 +26,5 @@ export {
   validateDocumentID,
   validateArrayDocumentID,
   validateUrl,
+  validateCategory,
 };

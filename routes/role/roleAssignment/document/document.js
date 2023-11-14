@@ -12,6 +12,7 @@ import {
   validateDocumentID,
   validateArrayDocumentID,
   validateUrl,
+  validateCategory,
 } from './document.modules.js';
 
 const documentRoute = express.Router();
@@ -21,7 +22,7 @@ documentRoute.delete('/documents', validateArrayDocumentID, deleteDocuments);
 
 documentRoute.route('/')
   .get(validateRoleHasUserID, listDocument)
-  .post(validateRoleHasUserID, handleFileUpload, createDocument)
-  .put(validateUrl, validateDocumentID, handleFileUpload, updateDocument)
+  .post(validateCategory, validateRoleHasUserID, handleFileUpload, createDocument)
+  .put(validateCategory, validateUrl, validateDocumentID, handleFileUpload, updateDocument)
   .delete(validateDocumentID, validateUrl, deleteDocument);
 export default documentRoute;

@@ -5,9 +5,9 @@ class CreateDocument {
 }
 
 class CreateDocument_SupaBase extends CreateDocument {
-  async createDocument(dataBase, archive, roleHasUserID, formatID) {
+  async createDocument(dataBase, archive, roleHasUserID, formatID, category) {
     const { error } = await dataBase.from('document').insert({
-      archive, roleHasUserID, formatID,
+      archive, roleHasUserID, formatID, category,
     }).select()
       .maybeSingle();
     if (error) { throw error; }

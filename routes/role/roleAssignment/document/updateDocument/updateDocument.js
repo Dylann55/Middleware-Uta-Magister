@@ -6,14 +6,16 @@ import getUniqueFileName from '../../../../../repository/storage/getUniqueFileNa
 const updateDocument = async (req, res) => {
   const dataBase = req.dataBase;
   const file = req.file;
-  const { documentID, archive, formatID } = req.data;
+  const {
+    documentID, archive, formatID, category,
+  } = req.data;
   const bucketLocation = 'image/Documents';
   const updateStorageInstance = new UpdateStorage();
   const updateDocumentInstance = new UpdateDocument();
   try {
     const uniqueFileName = getUniqueFileName(archive);
     const newArchive = await updateStorageInstance.updateStorage(dataBase, bucketLocation, file, uniqueFileName);
-    await updateDocumentInstance.updateDocument(dataBase, documentID, newArchive, formatID);
+    await updateDocumentInstance.updateDocument(dataBase, documentID, newArchive, formatID, category);
     res.status(200).json({ verificationMessage: 'El documento fue sido actualizado exitosamente' });
   } catch (error) {
     if (error.status === 409) {

@@ -5,9 +5,9 @@ class UpdateDocument {
 }
 
 class UpdateDocument_SupaBase extends UpdateDocument {
-  async updateDocument(dataBase, documentID, archive, formatID) {
+  async updateDocument(dataBase, documentID, archive, formatID, category) {
     const { error } = await dataBase.from('document').update({
-      archive, formatID,
+      archive, formatID, category,
     })
       .eq('documentID', documentID);
     if (error) { throw error; }
