@@ -1,6 +1,6 @@
 import { body, validationResult } from 'express-validator';
 
-const validCategory = ['Certificado', 'Contrato', 'Informe', 'Otro'];
+const validCategory = ['certificado', 'contrato', 'informe', 'otro'];
 
 const validateCategory = [
   body('category')
