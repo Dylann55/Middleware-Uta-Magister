@@ -1,9 +1,9 @@
 /* eslint-disable import/extensions */
 import express from 'express';
-import listUserByUserID from '../../roleAssignment/user/listUserByUserID/listUserByUserID.js';
-import updateUser from '../../roleAssignment/user/updateUser/updateUser.js';
-import updateEmail from '../../roleAssignment/user/updateEmail/updateEmail.js';
-import updatePassword from '../../roleAssignment/user/updatePassword/updatePassword.js';
+import listUserByUserID from '../../handleShared/roleAssignment/user/listUserByUserID/listUserByUserID.js';
+import updateUser from '../../handleShared/roleAssignment/user/updateUser/updateUser.js';
+import updateEmail from '../../handleShared/roleAssignment/user/updateEmail/updateEmail.js';
+import updatePassword from '../../handleShared/roleAssignment/user/updatePassword/updatePassword.js';
 
 import validateArrayRoleID from '../../../../validations/role/validateArrayRoleID/validateArrayRoleID.js';
 import validatePassword from '../../../../validations/auth/validatePassword/validatePassword.js';
