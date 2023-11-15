@@ -7,7 +7,15 @@ class SelectRoleHasTitle {
 class SelectRoleHasTitle_SupaBase extends SelectRoleHasTitle {
   async selectRoleHasTitle(dataBase, userID) {
     const { data, error } = await dataBase.from('title')
-      .select()
+      .select(`
+      roleHasTitleID,
+      documentTitle,
+      userID,
+      formatID,
+      format (name),
+      titleID,
+      title (name),
+      `)
       .eq('userID', userID);
     if (error) { throw error; }
     return data;
