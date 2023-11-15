@@ -13,7 +13,6 @@ class SelectRoleHasTitle_SupaBase extends SelectRoleHasTitle {
       formatID,
       titleID,
       title (name),
-      format (name),
       `)
       .eq('userID', userID);
     if (error) { throw error; }
