@@ -1,7 +1,7 @@
 import { body, validationResult } from 'express-validator';
 
 const validateTitleID = [
-  body('titleID').isString().withMessage('El titleID no es válido'),
+  body('titleID').isInt().withMessage('El titleID no es válido'),
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

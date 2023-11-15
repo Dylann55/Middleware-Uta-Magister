@@ -1,7 +1,7 @@
 import { body, validationResult } from 'express-validator';
 
 const validateTypeID = [
-  body('typeID').isString().withMessage('El typeID no es válido'),
+  body('typeID').isInt().withMessage('El typeID no es válido'),
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
