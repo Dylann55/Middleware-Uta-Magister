@@ -12,8 +12,8 @@ class SelectRoleHasTitle_SupaBase extends SelectRoleHasTitle {
       documentTitle,
       formatID,
       titleID,
-      format (name),
-      title (name)
+      title (name:*),
+      format (name:*),
       `)
       .eq('userID', userID);
     if (error) { throw error; }
