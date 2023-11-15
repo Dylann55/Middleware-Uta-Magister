@@ -6,7 +6,7 @@ class UpdateTitle {
 
 class UpdateTitle_SupaBase extends UpdateTitle {
   async updateTitle(dataBase, titleID, name, typeID, universityID) {
-    const { error } = await dataBase.from('evaluateHasUser')
+    const { error } = await dataBase.from('title')
       .update({
         name, typeID, universityID,
       })
