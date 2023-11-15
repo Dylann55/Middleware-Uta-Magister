@@ -13,7 +13,7 @@ const deleteRoleHasTitle = async (req, res) => {
   const deleteStorageInstance = new DeleteStorage();
   const deleteRoleHasTitleInstance = new DeleteRoleHasTitle();
   try {
-    const documents = await getRoleHasTitleInstance.getDocument(dataBase, roleHasTitleIDs);
+    const documents = await getRoleHasTitleInstance.getRoleHasTitle(dataBase, roleHasTitleIDs);
     const deletePromises = documents.map(async (document) => {
       const archive = document.documentTitle;
       const uniqueFileName = `Title/${getUniqueFileName(archive)}`;
