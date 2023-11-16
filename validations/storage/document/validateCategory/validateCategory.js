@@ -1,6 +1,6 @@
 import { body, validationResult } from 'express-validator';
 
-const validCategory = ['Currículum', 'Fotografía', 'Carta de motivación', 'Certificado de nacimiento', 'Fotocopia de cédula de identidad'];
+const validCategory = ['currículum', 'fotografía', 'carta de motivación', 'certificado de nacimiento', 'fotocopia de cédula de identidad'];
 
 const validateCategory = [
   body('category')
