@@ -4,6 +4,7 @@ import roleAssignmentRoute from '../handleShared/roleAssignment/roleAssignment.j
 import validateAllowedRoles from '../../../validations/role/director/validateAllowedRoles/validateAllowedRoles.js';
 import documentRoute from '../handleShared/document/document.js';
 import handleTitleRoute from '../handleShared/handleTitle/handleTitleRoute.js';
+import semesterRoute from '../handleShared/semester/semesterRoute.js';
 
 export {
   express,
@@ -11,4 +12,5 @@ export {
   validateAllowedRoles,
   documentRoute,
   handleTitleRoute,
+  semesterRoute,
 };

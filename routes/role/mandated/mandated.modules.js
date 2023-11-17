@@ -5,6 +5,7 @@ import validateAllowedRoles from '../../../validations/role/mandated/validateAll
 import handleSpecializationRoute from './handleSpecialization/handleSpecialization.js';
 import documentRoute from '../handleShared/document/document.js';
 import handleTitleRoute from '../handleShared/handleTitle/handleTitleRoute.js';
+import semesterRoute from '../handleShared/semester/semesterRoute.js';
 
 export {
   express,
@@ -13,4 +14,5 @@ export {
   handleSpecializationRoute,
   documentRoute,
   handleTitleRoute,
+  semesterRoute,
 };
