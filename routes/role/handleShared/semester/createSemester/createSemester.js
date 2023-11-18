@@ -5,11 +5,11 @@ import { CreateSemester } from '../../../../../repository/handleSpecialization/s
 const createSemester = async (req, res) => {
   const dataBase = req.dataBase;
   const {
-    startDate, finishDate,
+    semesterNumber, year, startDate, finishDate,
   } = req.body;
   const createSemesterInstance = new CreateSemester();
   try {
-    await createSemesterInstance.createSemester(dataBase, startDate, finishDate);
+    await createSemesterInstance.createSemester(dataBase, semesterNumber, year, startDate, finishDate);
     res.status(200).json({ verificationMessage: 'El Semestre fue subido exitosamente' });
   } catch (error) {
     if (error.status === 409) {

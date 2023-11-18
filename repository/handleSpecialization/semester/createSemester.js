@@ -5,9 +5,9 @@ class CreateSemester {
 }
 
 class CreateSemester_SupaBase extends CreateSemester {
-  async createSemester(dataBase, startDate, finishDate) {
+  async createSemester(dataBase, semesterNumber, year, startDate, finishDate) {
     const { error } = await dataBase.from('semester').insert({
-      startDate, finishDate,
+      semesterNumber, year, startDate, finishDate,
     });
     if (error) { throw error; }
   }

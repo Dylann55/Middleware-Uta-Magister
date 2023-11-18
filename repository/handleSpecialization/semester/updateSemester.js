@@ -5,10 +5,10 @@ class UpdateSemester {
 }
 
 class UpdateSemester_SupaBase extends UpdateSemester {
-  async updateSemester(dataBase, semesterID, startDate, finishDate) {
+  async updateSemester(dataBase, semesterID, semesterNumber, year, startDate, finishDate) {
     const { error } = await dataBase.from('semester')
       .update({
-        startDate, finishDate,
+        semesterNumber, year, startDate, finishDate,
       })
       .eq('semesterID', semesterID);
     if (error) { throw error; }

@@ -5,11 +5,11 @@ import { UpdateSemester } from '../../../../../repository/handleSpecialization/s
 const updateSemester = async (req, res) => {
   const dataBase = req.dataBase;
   const {
-    semesterID, startDate, finishDate,
+    semesterID, semesterNumber, year, startDate, finishDate,
   } = req.body;
   const updateSemesterInstance = new UpdateSemester();
   try {
-    await updateSemesterInstance.updateSemester(dataBase, semesterID, startDate, finishDate);
+    await updateSemesterInstance.updateSemester(dataBase, semesterID, semesterNumber, year, startDate, finishDate);
     res.status(200).json({ verificationMessage: 'Se actualizo exitosamente' });
   } catch (error) {
     if (error.status === 409) {
