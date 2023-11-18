@@ -1,9 +1,7 @@
 import { body, validationResult } from 'express-validator';
 
-const validateFinishDate = [
-  body('finishDate')
-    .matches(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z?$/)
-    .withMessage('La fecha debe estar en un formato correcto'),
+const validateSemesterNumber = [
+  body('semesterNumber').isInt().withMessage('El semesterNumber no es válido'),
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -15,4 +13,4 @@ const validateFinishDate = [
   },
 ];
 
-export default validateFinishDate;
+export default validateSemesterNumber;

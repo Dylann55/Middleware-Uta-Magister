@@ -7,6 +7,8 @@ import deleteSemester from './deleteSemester/deleteSemester.js';
 
 import validateArraySemesterID from '../../../../validations/handleSpecialization/semester/validateArraySemesterID/validateArraySemesterID.js';
 import validateSemesterID from '../../../../validations/handleSpecialization/semester/validateSemesterID/validateSemesterID.js';
+import validateSemesterNumber from '../../../../validations/handleSpecialization/semester/validateSemesterNumber/validateSemesterNumber.js';
+import validateYear from '../../../../validations/handleSpecialization/semester/validateYear/validateYear.js';
 import validateStartDate from '../../../../validations/handleSpecialization/semester/validateStartDate/validateStartDate.js';
 import validateFinishDate from '../../../../validations/handleSpecialization/semester/validateFinishDate/validateFinishDate.js';
 
@@ -18,6 +20,8 @@ export {
   deleteSemester,
   validateArraySemesterID,
   validateSemesterID,
+  validateSemesterNumber,
+  validateYear,
   validateStartDate,
   validateFinishDate,
 };
