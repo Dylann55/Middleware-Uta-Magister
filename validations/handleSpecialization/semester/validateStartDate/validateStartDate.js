@@ -2,8 +2,8 @@ import { body, validationResult } from 'express-validator';
 
 const validateStartDate = [
   body('startDate')
-    .matches(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z?$/)
-    .withMessage('La fecha debe estar en un formato correcto'),
+    .isISO8601()
+    .withMessage('La fecha debe estar en un formato ISO 8601 válido (ejemplo: 2023-11-21T03:00:00.000Z)'),
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
