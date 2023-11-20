@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import { GetSemester } from '../../../../../../repository/handleSpecialization/semester/getSemester.js';
-import getTimestamp from '../../../../../../repository/utils/getTimestamp.js';
+import getTimestamp from '../../../../../../utils/getTimestamp.js';
 
 const verifyEvaluateSemester = async (req, res, next) => {
   const dataBase = req.dataBase;
