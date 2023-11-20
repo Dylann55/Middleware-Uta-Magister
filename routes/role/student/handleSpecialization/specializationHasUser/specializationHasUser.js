@@ -10,8 +10,8 @@ import {
   verifyStatus,
   validateArraySpecializationHasUserID,
   validateSpecializationHasUserID,
-  validateSemesterID,
   validateSpecializationID,
+  validateSemesterID,
 } from './specializationHasUser.modules.js';
 
 const specializationHasUserRoute = express.Router();
