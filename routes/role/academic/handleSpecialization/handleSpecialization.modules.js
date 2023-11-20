@@ -4,7 +4,6 @@ import listStatus from './listStatus/listStatus.js';
 import listEvaluation from './listEvaluation/listEvaluation.js';
 import updateEvaluateHasUser from './updateEvaluateHasUser/updateEvaluateHasUser.js';
 import validateEvaluateID from '../../../../validations/storage/evaluate/validateEvaluateID/validateEvaluateID.js';
-import validateStatus from '../../../../validations/handleSpecialization/evaluateHasUser/validateStatusID/validateStatusID.js';
 
 export {
   express,
@@ -12,5 +11,4 @@ export {
   listEvaluation,
   updateEvaluateHasUser,
   validateEvaluateID,
-  validateStatus,
 };
