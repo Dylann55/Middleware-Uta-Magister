@@ -9,7 +9,6 @@ import deleteSpecializationHasUser from './deleteSpecializationHasUser/deleteSpe
 import verifyStatus from './verifyStatus/verifyStatus.js';
 import validateSpecializationHasUserID from '../../../../../validations/handleSpecialization/specializationHasUser/validateSpecializationHasUserID/validateSpecializationHasUserID.js';
 import validateArraySpecializationHasUserID from '../../../../../validations/handleSpecialization/specializationHasUser/validateArraySpecializationHasUserID/validateArraySpecializationHasUserID.js';
-import validateSpecializationID from '../../../../../validations/handleSpecialization/specializationHasUser/validateSpecializationID/validateSpecializationID.js';
 import validateSemesterID from '../../../../../validations/handleSpecialization/semester/validateSemesterID/validateSemesterID.js';
 
 export {
@@ -23,6 +22,5 @@ export {
   verifyStatus,
   validateArraySpecializationHasUserID,
   validateSpecializationHasUserID,
-  validateSpecializationID,
   validateSemesterID,
 };

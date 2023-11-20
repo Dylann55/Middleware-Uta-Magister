@@ -10,7 +10,6 @@ import {
   verifyStatus,
   validateArraySpecializationHasUserID,
   validateSpecializationHasUserID,
-  validateSpecializationID,
   validateSemesterID,
 } from './specializationHasUser.modules.js';
 
@@ -20,7 +19,7 @@ specializationHasUserRoute.put('/semester', listSemester);
 
 specializationHasUserRoute.route('/')
   .get(listSpecializationHasUser)
-  .post(validateSpecializationID, validateSemesterID, verifyStatus, createSpecializationHasUser)
-  .put(validateSpecializationHasUserID, validateSpecializationID, validateSemesterID, verifyStatus, updateSpecializationHasUser)
+  .post(validateSemesterID, verifyStatus, createSpecializationHasUser)
+  .put(validateSpecializationHasUserID, validateSemesterID, verifyStatus, updateSpecializationHasUser)
   .delete(validateArraySpecializationHasUserID, verifyStatus, deleteSpecializationHasUser);
 export default specializationHasUserRoute;
