@@ -23,6 +23,6 @@ export {
   verifyStatus,
   validateArraySpecializationHasUserID,
   validateSpecializationHasUserID,
-  validateSemesterID,
   validateSpecializationID,
+  validateSemesterID,
 };
