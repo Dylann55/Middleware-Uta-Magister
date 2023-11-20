@@ -3,7 +3,7 @@ import { CreateSpecializationHasUser } from '../../../../../../repository/handle
 
 const createSpecializationHasUser = async (req, res) => {
   const dataBase = req.dataBase;
-  const { roleHasUserID, specializationID, semesterID } = req.data;
+  const { roleHasUserID, specializationID, semesterID } = req.body;
   const createSpecializationHasUserInstance = new CreateSpecializationHasUser();
   try {
     await createSpecializationHasUserInstance.createSpecializationHasUser(dataBase, roleHasUserID, specializationID, semesterID);

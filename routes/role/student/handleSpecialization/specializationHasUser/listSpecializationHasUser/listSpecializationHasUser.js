@@ -3,7 +3,7 @@ import { GetSpecializationHasUser } from '../../../../../../repository/handleSpe
 
 const listSpecializationHasUser = async (req, res) => {
   const dataBase = req.dataBase;
-  const { roleHasUserID } = req.data;
+  const { roleHasUserID } = req.body;
   const getSpecializationHasUserInstance = new GetSpecializationHasUser();
   try {
     const data = await getSpecializationHasUserInstance.getSpecializationHasUser(dataBase, roleHasUserID);
