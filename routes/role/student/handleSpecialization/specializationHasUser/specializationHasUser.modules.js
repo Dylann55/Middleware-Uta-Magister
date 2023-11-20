@@ -10,6 +10,7 @@ import verifyStatus from './verifyStatus/verifyStatus.js';
 import validateSpecializationHasUserID from '../../../../../validations/handleSpecialization/specializationHasUser/validateSpecializationHasUserID/validateSpecializationHasUserID.js';
 import validateArraySpecializationHasUserID from '../../../../../validations/handleSpecialization/specializationHasUser/validateArraySpecializationHasUserID/validateArraySpecializationHasUserID.js';
 import validateSemesterID from '../../../../../validations/handleSpecialization/semester/validateSemesterID/validateSemesterID.js';
+import validateSpecializationID from '../../../../../validations/handleSpecialization/specialization/validateSpecializationID/validateSpecializationID.js';
 
 export {
   express,
@@ -23,4 +24,5 @@ export {
   validateArraySpecializationHasUserID,
   validateSpecializationHasUserID,
   validateSemesterID,
+  validateSpecializationID,
 };
