@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import { UpdateSpecializationHasUser } from '../../../../../repository/handleSpecialization/specializationHasUser/updateSpecializationHasUser.js';
+import { UpdateSpecializationHasUser } from '../../../../../../repository/handleSpecialization/specializationHasUser/updateSpecializationHasUser.js';
 
 const updateSpecializationHasUser = async (req, res) => {
   const dataBase = req.dataBase;

@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import { SelectSpecialization } from '../../../../../repository/handleSpecialization/selectSpecialization.js';
+import { SelectSpecialization } from '../../../../../../repository/handleSpecialization/specialization/selectSpecialization.js';
 
 const listSpecialization = async (req, res) => {
   const dataBase = req.dataBase;
