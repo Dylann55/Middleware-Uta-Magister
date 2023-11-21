@@ -7,8 +7,8 @@ class GetSpecializationHasUser {
 class GetSpecializationHasUser_SupaBase extends GetSpecializationHasUser {
   async getSpecializationHasUser(dataBase, roleHasUserID) {
     const { data, error } = await dataBase.from('specializationEvaluationAcademics')
-      .eq('roleHasUserID', roleHasUserID)
-      .select();
+      .select()
+      .eq('roleHasUserID', roleHasUserID);
     if (error) { throw error; }
     return data;
   }

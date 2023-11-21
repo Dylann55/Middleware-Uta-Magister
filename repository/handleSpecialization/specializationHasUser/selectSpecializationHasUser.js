@@ -7,8 +7,8 @@ class SelectSpecializationHasUser {
 class SelectSpecializationHasUser_SupaBase extends SelectSpecializationHasUser {
   async selectSpecializationHasUser(dataBase, semesterID) {
     const { data, error } = await dataBase.from('specializationHasUser')
-      .eq('semesterID', semesterID)
-      .select();
+      .select()
+      .eq('semesterID', semesterID);
     if (error) { throw error; }
     return data;
   }
