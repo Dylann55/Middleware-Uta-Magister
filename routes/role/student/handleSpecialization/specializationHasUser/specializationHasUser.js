@@ -16,7 +16,7 @@ import {
 
 const specializationHasUserRoute = express.Router();
 specializationHasUserRoute.get('/specialization', listSpecialization);
-specializationHasUserRoute.put('/semester', listSemester);
+specializationHasUserRoute.get('/semester', listSemester);
 
 specializationHasUserRoute.route('/')
   .get(listSpecializationHasUser)
