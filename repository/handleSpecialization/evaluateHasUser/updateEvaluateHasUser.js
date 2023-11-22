@@ -5,12 +5,9 @@ class UpdateEvaluateHasUser {
 }
 
 class UpdateEvaluateHasUser_SupaBase extends UpdateEvaluateHasUser {
-  async updateEvaluateHasUser(dataBase, evaluateID, roleHasUserFirstID, roleHasUserSecondID, statusID) {
+  async updateEvaluateHasUser(dataBase, dataArray) {
     const { error } = await dataBase.from('evaluateHasUser')
-      .update({
-        roleHasUserFirstID, roleHasUserSecondID, statusID,
-      })
-      .eq('evaluateID', evaluateID);
+      .upsert(dataArray);
     if (error) { throw error; }
   }
 }

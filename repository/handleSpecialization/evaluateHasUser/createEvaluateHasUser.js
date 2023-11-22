@@ -5,11 +5,9 @@ class CreateEvaluateHasUser {
 }
 
 class CreateEvaluateHasUser_SupaBase extends CreateEvaluateHasUser {
-  async createEvaluateHasUser(dataBase, evaluateID, statusID) {
-    const { error } = await dataBase.from('evaluateHasUser').insert({
-      evaluateID, statusID,
-    }).select()
-      .maybeSingle();
+  async createEvaluateHasUser(dataBase, dataArray) {
+    const { error } = await dataBase.from('evaluateHasUser')
+      .insert(dataArray);
     if (error) { throw error; }
   }
 }
