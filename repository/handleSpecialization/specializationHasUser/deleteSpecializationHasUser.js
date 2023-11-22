@@ -5,9 +5,10 @@ class DeleteSpecializationHasUser {
 }
 
 class DeleteSpecializationHasUser_SupaBase extends DeleteSpecializationHasUser {
-  async deleteSpecializationHasUser(dataBase, specializationHasUserIDs) {
+  async deleteSpecializationHasUser(dataBase, specializationHasUserIDs, roleHasUserID) {
     const { error } = await dataBase.from('specializationHasUser')
       .delete()
+      .eq('roleHasUserID', roleHasUserID)
       .in('specializationHasUserID', specializationHasUserIDs);
     if (error) { throw error; }
   }

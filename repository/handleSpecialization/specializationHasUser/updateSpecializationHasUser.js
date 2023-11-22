@@ -5,11 +5,12 @@ class UpdateSpecializationHasUser {
 }
 
 class UpdateSpecializationHasUser_SupaBase extends UpdateSpecializationHasUser {
-  async updateSpecializationHasUser(dataBase, specializationHasUserID, specializationID) {
+  async updateSpecializationHasUser(dataBase, specializationHasUserID, specializationID, roleHasUserID) {
     const { error } = await dataBase.from('specializationHasUser')
       .update({
         specializationID,
       })
+      .eq('roleHasUserID', roleHasUserID)
       .eq('specializationHasUserID', specializationHasUserID);
     if (error) { throw error; }
   }

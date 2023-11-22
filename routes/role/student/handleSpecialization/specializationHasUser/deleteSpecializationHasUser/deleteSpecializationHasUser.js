@@ -3,10 +3,10 @@ import { DeleteSpecializationHasUser } from '../../../../../../repository/handle
 
 const deleteSpecializationHasUser = async (req, res) => {
   const dataBase = req.dataBase;
-  const { specializationHasUserIDs } = req.body;
+  const { specializationHasUserIDs, roleHasUserID } = req.body;
   const deleteSpecializationHasUserInstance = new DeleteSpecializationHasUser();
   try {
-    await deleteSpecializationHasUserInstance.deleteSpecializationHasUser(dataBase, specializationHasUserIDs);
+    await deleteSpecializationHasUserInstance.deleteSpecializationHasUser(dataBase, specializationHasUserIDs, roleHasUserID);
 
     res.status(200).json({ verificationMessage: 'La especialización se ha eliminado exitosamente' });
   } catch (error) {

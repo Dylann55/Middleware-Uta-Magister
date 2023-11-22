@@ -3,10 +3,10 @@ import { UpdateSpecializationHasUser } from '../../../../../../repository/handle
 
 const updateSpecializationHasUser = async (req, res) => {
   const dataBase = req.dataBase;
-  const { specializationHasUserID, specializationID } = req.body;
+  const { specializationHasUserID, specializationID, roleHasUserID } = req.body;
   const updateSpecializationHasUserInstance = new UpdateSpecializationHasUser();
   try {
-    await updateSpecializationHasUserInstance.updateSpecializationHasUser(dataBase, specializationHasUserID, specializationID);
+    await updateSpecializationHasUserInstance.updateSpecializationHasUser(dataBase, specializationHasUserID, specializationID, roleHasUserID);
     res.status(200).json({ verificationMessage: 'Se actualizo exitosamente' });
   } catch (error) {
     if (error.status === 409) {

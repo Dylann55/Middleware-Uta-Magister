@@ -8,8 +8,7 @@ class CreateSpecializationHasUser_SupaBase extends CreateSpecializationHasUser {
   async createSpecializationHasUser(dataBase, roleHasUserID, specializationID, semesterID) {
     const { error } = await dataBase.from('specializationHasUser').insert({
       roleHasUserID, specializationID, semesterID,
-    }).select()
-      .maybeSingle();
+    });
     if (error) { throw error; }
   }
 }
