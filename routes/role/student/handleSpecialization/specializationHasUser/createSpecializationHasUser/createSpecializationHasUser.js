@@ -9,7 +9,9 @@ const createSpecializationHasUser = async (req, res) => {
     await createSpecializationHasUserInstance.createSpecializationHasUser(dataBase, roleHasUserID, specializationID, semesterID);
     res.status(200).json({ verificationMessage: 'La especialización fue subido exitosamente' });
   } catch (error) {
-    if (error.status === 409) {
+    if (error && error.code === 'PGRST116') {
+      res.status(409).json({ message: 'Ya existe una especialización para este usuario en el semestre actual' });
+    } else if (error.status === 409) {
       res.status(409).json({ message: error.message });
     } else {
       res.status(500).json({ error });
