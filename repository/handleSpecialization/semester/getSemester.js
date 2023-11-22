@@ -7,7 +7,8 @@ class GetSemester {
 class GetSemester_SupaBase extends GetSemester {
   async getSemester(dataBase, semesterID) {
     const { data, error } = await dataBase.from('semester')
-      .select('semesterID', semesterID)
+      .select()
+      .eq('semesterID', semesterID)
       .maybeSingle();
     if (error) { throw error; }
     return data;
