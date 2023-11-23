@@ -8,7 +8,7 @@ const updateEvaluationStatus = async (req, res) => {
   } = req.body;
   const updateEvaluationStatusInstance = new UpdateEvaluationStatus();
   try {
-    await updateEvaluationStatusInstance.updateEvaluationStatus(dataBase, evaluationStatusID, specializationHasUserID);
+    await updateEvaluationStatusInstance.updateEvaluationStatus(dataBase, specializationHasUserID, evaluationStatusID);
     res.status(200).json({ verificationMessage: 'Se actualizo exitosamente' });
   } catch (error) {
     if (error.status === 409) {
