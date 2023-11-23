@@ -5,10 +5,9 @@ class SelectSpecializationHasUser {
 }
 
 class SelectSpecializationHasUser_SupaBase extends SelectSpecializationHasUser {
-  async selectSpecializationHasUser(dataBase, semesterID) {
-    const { data, error } = await dataBase.from('specializationHasUser')
-      .select()
-      .eq('semesterID', semesterID);
+  async selectSpecializationHasUser(dataBase) {
+    const { data, error } = await dataBase.from('specializationEvaluationAcademics')
+      .select();
     if (error) { throw error; }
     return data;
   }

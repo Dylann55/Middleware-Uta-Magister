@@ -3,10 +3,9 @@ import { SelectSpecializationHasUser } from '../../../../../repository/handleSpe
 
 const listEvaluation = async (req, res) => {
   const dataBase = req.dataBase;
-  const { semesterID } = req.body;
   const selectSpecializationHasUserInstance = new SelectSpecializationHasUser();
   try {
-    const data = await selectSpecializationHasUserInstance.selectSpecializationHasUser(dataBase, semesterID);
+    const data = await selectSpecializationHasUserInstance.selectSpecializationHasUser(dataBase);
     res.status(200).json(data);
   } catch (error) {
     if (error.status === 409) {

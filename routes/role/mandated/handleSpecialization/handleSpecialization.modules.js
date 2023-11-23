@@ -7,7 +7,6 @@ import createEvaluateHasUser from './createEvaluateHasUser/createEvaluateHasUser
 import updateEvaluateHasUser from './updateEvaluateHasUser/updateEvaluateHasUser.js';
 import updateEvaluationStatus from './updateEvaluationStatus/updateEvaluationStatus.js';
 import validateSpecializationHasUserID from '../../../../validations/handleSpecialization/specializationHasUser/validateSpecializationHasUserID/validateSpecializationHasUserID.js';
-import validateSemesterID from '../../../../validations/handleSpecialization/semester/validateSemesterID/validateSemesterID.js';
 import validateAcademic_roleHasUserID from '../../../../validations/handleSpecialization/evaluationHasUser/validateAcademic_roleHasUserID/validateAcademic_roleHasUserID.js';
 import validateEvaluateHasUserID from '../../../../validations/handleSpecialization/evaluationHasUser/validateEvaluateHasUserID/validateEvaluateHasUserID.js';
 import validateEvaluationStatusID from '../../../../validations/handleSpecialization/evaluationHasUser/validateEvaluationStatusID/validateEvaluationStatusID.js';
@@ -21,7 +20,6 @@ export {
   updateEvaluateHasUser,
   updateEvaluationStatus,
   validateSpecializationHasUserID,
-  validateSemesterID,
   validateAcademic_roleHasUserID,
   validateEvaluateHasUserID,
   validateEvaluationStatusID,

@@ -8,7 +8,6 @@ import {
   updateEvaluateHasUser,
   updateEvaluationStatus,
   validateSpecializationHasUserID,
-  validateSemesterID,
   validateAcademic_roleHasUserID,
   validateEvaluateHasUserID,
   validateEvaluationStatusID,
@@ -20,7 +19,7 @@ handleSpecializationRoute.get('/academic', listAcademic);
 handleSpecializationRoute.get('/semester', listSemester);
 
 handleSpecializationRoute.route('/')
-  .get(validateSemesterID, listEvaluation)
+  .get(listEvaluation)
   .post(validateAcademic_roleHasUserID, validateSpecializationHasUserID, createEvaluateHasUser)
   .put(validateAcademic_roleHasUserID, validateEvaluateHasUserID, validateSpecializationHasUserID, validateEvaluationStatusID, updateEvaluateHasUser, updateEvaluationStatus);
 
