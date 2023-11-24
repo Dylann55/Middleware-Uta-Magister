@@ -19,6 +19,6 @@ handleSpecializationRoute.get('/semester', listSemester);
 
 handleSpecializationRoute.route('/')
   .get(listEvaluation)
-  .post(validateAcademic_roleHasUserID, validateSpecializationHasUserID, validateEvaluationStatusID, updateEvaluationStatus, createEvaluateHasUser)
+  .post(validateAcademic_roleHasUserID, validateSpecializationHasUserID, validateEvaluationStatusID, createEvaluateHasUser, updateEvaluationStatus)
   .put(validateAcademic_roleHasUserID, validateEvaluateHasUserID, validateSpecializationHasUserID, updateEvaluateHasUser);
 export default handleSpecializationRoute;

@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import { UpdateEvaluateHasUser } from '../../../../../repository/handleSpecialization/evaluateHasUser/updateEvaluateHasUser.js';
 
-const updateEvaluateHasUser = async (req, res, next) => {
+const updateEvaluateHasUser = async (req, res) => {
   const dataBase = req.dataBase;
   const {
     evaluateHasUser1ID, evaluateHasUser2ID, evaluateHasUser3ID, academic1_roleHasUserID, academic2_roleHasUserID, academic3_roleHasUserID, specializationHasUserID,
@@ -20,7 +20,7 @@ const updateEvaluateHasUser = async (req, res, next) => {
   ];
   try {
     await updateEvaluateHasUserInstance.updateEvaluateHasUser(dataBase, dataArray);
-    next();
+    res.status(200).json({ verificationMessage: 'Se actualizo exitosamente' });
   } catch (error) {
     if (error.status === 409) {
       res.status(409).json({ message: error.message });

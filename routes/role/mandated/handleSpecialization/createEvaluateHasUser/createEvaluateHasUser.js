@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import { CreateEvaluateHasUser } from '../../../../../repository/handleSpecialization/evaluateHasUser/createEvaluateHasUser.js';
 
-const createEvaluateHasUser = async (req, res) => {
+const createEvaluateHasUser = async (req, res, next) => {
   const dataBase = req.dataBase;
   const {
     academic1_roleHasUserID, academic2_roleHasUserID, academic3_roleHasUserID, specializationHasUserID,
@@ -14,7 +14,7 @@ const createEvaluateHasUser = async (req, res) => {
   ];
   try {
     await createEvaluateHasUserInstance.createEvaluateHasUser(dataBase, dataArray);
-    res.status(200).json({ verificationMessage: 'Se actualizo exitosamente' });
+    next();
   } catch (error) {
     if (error.status === 409) {
       res.status(409).json({ message: error.message });

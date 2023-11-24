@@ -9,7 +9,7 @@ const updateEvaluationStatus = async (req, res) => {
   const updateEvaluationStatusInstance = new UpdateEvaluationStatus();
   try {
     await updateEvaluationStatusInstance.updateEvaluationStatus(dataBase, specializationHasUserID, evaluationStatusID);
-    res.status(200).json({ verificationMessage: 'Se actualizo exitosamente' });
+    res.status(200).json({ verificationMessage: 'Se han asignados academícos exitosamente' });
   } catch (error) {
     if (error.status === 409) {
       res.status(409).json({ message: error.message });
