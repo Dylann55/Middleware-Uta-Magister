@@ -6,10 +6,13 @@ class CreateSemester {
 
 class CreateSemester_SupaBase extends CreateSemester {
   async createSemester(dataBase, semesterNumber, year, startDate, finishDate) {
-    const { error } = await dataBase.from('semester').insert({
+    const { data, error } = await dataBase.from('semester').insert({
       semesterNumber, year, startDate, finishDate,
-    });
+    })
+      .select()
+      .maybeSingle();
     if (error) { throw error; }
+    return data;
   }
 }
 
