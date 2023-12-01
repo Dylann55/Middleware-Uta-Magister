@@ -1,15 +1,15 @@
 /* eslint-disable max-len */
 /* eslint-disable import/extensions */
 import {
-  express, listSemester, createSemester, deleteSemesterBucket, updateSemester, deleteSemester, createSemesterBucket, validateArraySemesterID, validateSemesterID, validateYear, validateSemesterNumber, validateStartDate, validateFinishDate,
+  express, listSemester, createSemester, updateSemester, deleteSemester, validateArraySemesterID, validateSemesterID, validateYear, validateSemesterNumber, validateStartDate, validateFinishDate,
 } from './semesterModules.js';
 
 const semesterRoute = express.Router();
 
 semesterRoute.route('/')
   .get(listSemester)
-  .post(validateYear, validateSemesterNumber, validateStartDate, validateFinishDate, createSemester, createSemesterBucket)
+  .post(validateYear, validateSemesterNumber, validateStartDate, validateFinishDate, createSemester)
   .put(validateYear, validateSemesterNumber, validateSemesterID, validateStartDate, validateFinishDate, updateSemester)
-  .delete(validateArraySemesterID, deleteSemester, deleteSemesterBucket);
+  .delete(validateArraySemesterID, deleteSemester);
 
 export default semesterRoute;

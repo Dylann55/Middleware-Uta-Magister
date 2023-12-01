@@ -10,7 +10,7 @@ const deleteDocument = async (req, res) => {
   const deleteStorageInstance = new DeleteStorage();
   const deleteDocumentsInstance = new DeleteDocuments();
   try {
-    const uniqueFileName = `Documentss/${getUniqueFileName(archive)}`;
+    const uniqueFileName = `Documents/${getUniqueFileName(archive)}`;
     await deleteStorageInstance.deleteStorage(dataBase, bucketLocation, uniqueFileName);
     await deleteDocumentsInstance.deleteDocuments(dataBase, documentID);
 
