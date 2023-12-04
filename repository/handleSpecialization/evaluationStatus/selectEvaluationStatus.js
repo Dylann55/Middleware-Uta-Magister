@@ -6,12 +6,13 @@ class SelectEvaluationStatus {
 
 class SelectEvaluationStatus_SupaBase extends SelectEvaluationStatus {
   async selectEvaluationStatus(dataBase, evaluationStatusIDs) {
-    const { error } = await dataBase.from('evaluationStatus')
+    const { data, error } = await dataBase.from('evaluationStatus')
       .select()
       .in('evaluationStatusID', evaluationStatusIDs);
     if (error) {
       throw error;
     }
+    return data;
   }
 }
 
