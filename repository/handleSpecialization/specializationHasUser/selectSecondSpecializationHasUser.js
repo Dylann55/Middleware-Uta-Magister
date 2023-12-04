@@ -8,8 +8,7 @@ class SelectSecondSpecializationHasUser_SupaBase extends SelectSecondSpecializat
   async selectSecondSpecializationHasUser(dataBase, roleHasUserID) {
     const { data, error } = await dataBase.from('specializationEvaluationAcademics')
       .select()
-      .or(dataBase.from('specializationEvaluationAcademics').eq('academic2_roleHasUserID', roleHasUserID))
-      .or(dataBase.from('specializationEvaluationAcademics').eq('academic3_roleHasUserID', roleHasUserID));
+      .or(`academic2_roleHasUserID.eq.${roleHasUserID} ,academic3_roleHasUserID.eq.${roleHasUserID}`);
     if (error) { throw error; }
     return data;
   }
