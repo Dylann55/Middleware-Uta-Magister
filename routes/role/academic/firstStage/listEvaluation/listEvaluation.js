@@ -1,12 +1,12 @@
 /* eslint-disable import/extensions */
-import { SelectEvaluationbyRoleHasUser } from '../../../../../repository/handleSpecialization/selectEvaluationbyRoleHasUser.js';
+import { SelectFirstSpecializationHasUser } from '../../../../../repository/handleSpecialization/specializationHasUser/selectFirstSpecializationHasUser.js';
 
 const listEvaluation = async (req, res) => {
   const dataBase = req.dataBase;
   const { roleHasUserID } = req.body;
-  const selectEvaluationInstance = new SelectEvaluationbyRoleHasUser();
+  const selectFirstSpecializationHasUserInstance = new SelectFirstSpecializationHasUser();
   try {
-    const data = await selectEvaluationInstance.selectEvaluationbyRoleHasUser(dataBase, roleHasUserID, roleHasUserID);
+    const data = await selectFirstSpecializationHasUserInstance.selectFirstSpecializationHasUser(dataBase, roleHasUserID);
     res.status(200).json(data);
   } catch (error) {
     if (error.status === 409) {

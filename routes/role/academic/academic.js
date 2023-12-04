@@ -1,9 +1,11 @@
 /* eslint-disable import/extensions */
 import {
   express,
-  handleSpecializationRoute,
+  firstStageRoute,
+  secondStageRoute,
 } from './academic.modules.js';
 
 const academicRoute = express.Router();
-academicRoute.use('/specialization', handleSpecializationRoute);
+academicRoute.use('/firstStage', firstStageRoute);
+academicRoute.use('/secondStage', secondStageRoute);
 export default academicRoute;
