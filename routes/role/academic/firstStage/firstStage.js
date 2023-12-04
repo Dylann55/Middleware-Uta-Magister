@@ -8,6 +8,6 @@ const firstStageRoute = express.Router();
 firstStageRoute.get('/evaluationStatus', listEvaluationStatus);
 
 firstStageRoute.route('/')
-  .get(validateSpecializationHasUserID, listEvaluation)
+  .get(listEvaluation)
   .put(validateSpecializationHasUserID, validateEvaluationStatusID, verifySpecializationHasUser, updateEvaluationStatus);
 export default firstStageRoute;
