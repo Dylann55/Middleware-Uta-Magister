@@ -2,9 +2,11 @@
 import express from 'express';
 import firstStageRoute from './firstStage/firstStage.js';
 import secondStageRoute from './secondStage/secondStage.js';
+import listSemester from '../handleShared/semester/listSemester/listSemester.js';
 
 export {
   express,
   firstStageRoute,
   secondStageRoute,
+  listSemester,
 };
