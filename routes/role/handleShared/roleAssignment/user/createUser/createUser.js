@@ -6,11 +6,11 @@ const createUser = async (req, res, next) => {
   const dataBase = req.dataBase;
   const id = req.id;
   const {
-    rut, firstName, secondName, surnameM, surnameF, sex, stateCivil, birthday, address, email, phone,
+    rut, firstName, secondName, surnameM, surnameF, sex, stateCivil, birthday, address, email, phone, placeWork, phoneWork, job,
   } = req.body;
   const createUserInstance = new CreateUser();
   try {
-    const user = await createUserInstance.createUser(dataBase, id, rut, firstName, secondName, surnameM, surnameF, sex, stateCivil, birthday, address, email, phone);
+    const user = await createUserInstance.createUser(dataBase, id, rut, firstName, secondName, surnameM, surnameF, sex, stateCivil, birthday, address, email, phone, placeWork, phoneWork, job);
     if (!user) {
       return res.status(409).json({ error: 'No se creo el usuario' });
     }

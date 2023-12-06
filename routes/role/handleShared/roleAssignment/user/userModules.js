@@ -28,6 +28,9 @@ import validateBirthday from '../../../../../validations/user/validateBirthday/v
 import validateAddress from '../../../../../validations/user/validateAddress/validateAddress.js';
 import validateEmail from '../../../../../validations/user/validateEmail/validateEmail.js';
 import validatePhone from '../../../../../validations/user/validatePhone/validatePhone.js';
+import validatePlaceWork from '../../../../../validations/user/validatePlaceWork/validatePlaceWork.js';
+import validatePhoneWork from '../../../../../validations/user/validatePhone/validatePhone.js';
+import validateJob from '../../../../../validations/user/validateJob/validateJob.js';
 
 export {
   express,
@@ -56,4 +59,7 @@ export {
   validateAddress,
   validateEmail,
   validatePhone,
+  validatePhoneWork,
+  validatePlaceWork,
+  validateJob,
 };

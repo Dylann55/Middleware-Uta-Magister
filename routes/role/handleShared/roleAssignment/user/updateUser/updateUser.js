@@ -5,11 +5,11 @@ import { UpdateUser } from '../../../../../../repository/roleAssignment/user/upd
 const updateUser = async (req, res) => {
   const dataBase = req.dataBase;
   const {
-    userID, rut, firstName, secondName, surnameM, surnameF, sex, stateCivil, birthday, address, phone,
+    userID, rut, firstName, secondName, surnameM, surnameF, sex, stateCivil, birthday, address, phone, placeWork, phoneWork, job,
   } = req.body;
   const updateUserInstance = new UpdateUser();
   try {
-    await updateUserInstance.updateUser(dataBase, userID, rut, firstName, secondName, surnameM, surnameF, sex, stateCivil, birthday, address, phone);
+    await updateUserInstance.updateUser(dataBase, userID, rut, firstName, secondName, surnameM, surnameF, sex, stateCivil, birthday, address, phone, placeWork, phoneWork, job);
     res.status(200).json({ verificationMessage: 'Se actualizo exitosamente' });
   } catch (error) {
     if (error.status === 409) {
