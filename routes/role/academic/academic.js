@@ -4,12 +4,12 @@ import {
   firstStageRoute,
   secondStageRoute,
   listSemester,
-  handleRubric,
+  handleRubricRoute,
 } from './academic.modules.js';
 
 const academicRoute = express.Router();
 academicRoute.use('/firstStage', firstStageRoute);
 academicRoute.use('/secondStage', secondStageRoute);
 academicRoute.get('/semester', listSemester);
-academicRoute.get('/handleRubric', handleRubric);
+academicRoute.use('/handleRubric', handleRubricRoute);
 export default academicRoute;

@@ -8,7 +8,7 @@ const verifyEvaluateHasUser = async (req, res, next) => {
   try {
     const data = await getEvaluateHasUserInstance.getEvaluateHasUser(dataBase, roleHasUserID, specializationHasUserID);
     if (data) {
-      req.body.evaluateHasUserID = data.evaluateHasUserID;
+      req.body.evaluateHasUserID = data[0].evaluateHasUserID;
       next();
     } else {
       return res.status(409).json({ error: 'Acceso denegado: No cuentas con los permisos requeridos para modificar este proceso de evaluación' });

@@ -9,8 +9,7 @@ class GetEvaluateHasUser_SupaBase extends GetEvaluateHasUser {
     const { data, error } = await dataBase.from('evaluateHasUser')
       .select()
       .eq('roleHasUserID', roleHasUserID)
-      .eq('specializationHasUserID', specializationHasUserID)
-      .maybeSingle();
+      .eq('specializationHasUserID', specializationHasUserID);
     if (error) { throw error; }
     return data;
   }
