@@ -1,7 +1,7 @@
 import { body, validationResult } from 'express-validator';
 
-const validateRoleHasTitleID = [
-  body('roleHasTitleID').isInt().withMessage('El roleHasTitleID no es válido'),
+const validateUserHasTitleID = [
+  body('userHasTitleID').isInt().withMessage('El userHasTitleID no es válido'),
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -13,4 +13,4 @@ const validateRoleHasTitleID = [
   },
 ];
 
-export default validateRoleHasTitleID;
+export default validateUserHasTitleID;

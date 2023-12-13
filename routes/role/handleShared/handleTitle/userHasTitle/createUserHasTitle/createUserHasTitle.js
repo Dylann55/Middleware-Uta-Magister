@@ -1,9 +1,9 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
-import { CreateRoleHasTitle } from '../../../../../../repository/handleTitle/roleHasTitle/createRoleHasTitle.js';
+import { CreateUserHasTitle } from '../../../../../../repository/handleTitle/userHasTitle/createUserHasTitle.js';
 import { CreateStorage } from '../../../../../../repository/storage/createStorage.js';
 
-const createRoleHasTitle = async (req, res) => {
+const createUserHasTitle = async (req, res) => {
   const dataBase = req.dataBase;
   const file = req.file;
   const {
@@ -11,10 +11,10 @@ const createRoleHasTitle = async (req, res) => {
   } = req.data;
   const bucketLocation = 'image/Title';
   const createStorageInstance = new CreateStorage();
-  const createRoleHasTitleInstance = new CreateRoleHasTitle();
+  const createUserHasTitleInstance = new CreateUserHasTitle();
   try {
     const documentTitle = await createStorageInstance.createStorage(dataBase, bucketLocation, file);
-    await createRoleHasTitleInstance.createRoleHasTitle(dataBase, userID, formatID, titleID, documentTitle);
+    await createUserHasTitleInstance.createUserHasTitle(dataBase, userID, formatID, titleID, documentTitle);
     res.status(200).json({ verificationMessage: 'El título fue subido exitosamente' });
   } catch (error) {
     if (error.status === 409) {
@@ -24,4 +24,4 @@ const createRoleHasTitle = async (req, res) => {
     }
   }
 };
-export default createRoleHasTitle;
+export default createUserHasTitle;

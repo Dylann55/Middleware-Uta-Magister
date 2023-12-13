@@ -1,7 +1,7 @@
 import { body, validationResult } from 'express-validator';
 
-const validateArrayRoleHasTitleID = [
-  body('roleHasTitleIDs')
+const validateArrayUserHasTitleID = [
+  body('userHasTitleIDs')
     .isArray().withMessage('El arreglo no es válido')
     .custom((value) => {
       if (!Array.isArray(value) || value.length >= process.env.MAX_LENGHT_ARRAY_NUMBER || value.some((item) => typeof item !== 'number')) {
@@ -20,4 +20,4 @@ const validateArrayRoleHasTitleID = [
   },
 ];
 
-export default validateArrayRoleHasTitleID;
+export default validateArrayUserHasTitleID;

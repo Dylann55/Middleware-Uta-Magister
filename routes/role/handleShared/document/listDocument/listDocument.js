@@ -3,10 +3,10 @@ import { SelectDocument } from '../../../../../repository/storage/document/selec
 
 const listDocument = async (req, res) => {
   const dataBase = req.dataBase;
-  const { roleHasUserID } = req.body;
+  const { userID } = req.body;
   const selectDocumentInstance = new SelectDocument();
   try {
-    const data = await selectDocumentInstance.selectDocument(dataBase, roleHasUserID);
+    const data = await selectDocumentInstance.selectDocument(dataBase, userID);
     res.status(200).json(data);
   } catch (error) {
     if (error.status === 409) {

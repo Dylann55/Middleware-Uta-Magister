@@ -8,7 +8,7 @@ import {
   updateDocument,
   deleteDocument,
   deleteDocuments,
-  validateRoleHasUserID,
+  validateUserID,
   validateDocumentID,
   validateArrayDocumentID,
   validateUrl,
@@ -21,8 +21,8 @@ documentRoute.get('/documents', listAllDocument);
 documentRoute.delete('/documents', validateArrayDocumentID, deleteDocuments);
 
 documentRoute.route('/')
-  .get(validateRoleHasUserID, listDocument)
-  .post(validateCategory, validateRoleHasUserID, handleFileUpload, createDocument)
+  .get(validateUserID, listDocument)
+  .post(validateCategory, validateUserID, handleFileUpload, createDocument)
   .put(validateCategory, validateDocumentID, updateDocument)
   .delete(validateDocumentID, validateUrl, deleteDocument);
 export default documentRoute;

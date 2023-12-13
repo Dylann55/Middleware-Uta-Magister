@@ -5,17 +5,17 @@ class SelectDocument {
 }
 
 class SelectDocument_SupaBase extends SelectDocument {
-  async selectDocument(dataBase, roleHasUserID) {
+  async selectDocument(dataBase, userID) {
     const { data, error } = await dataBase.from('document')
       .select(`
         documentID,
         category,
         archive,
-        roleHasUserID,
+        userID,
         formatID,
         format (name)
         `)
-      .eq('roleHasUserID', roleHasUserID);
+      .eq('userID', userID);
     if (error) { throw error; }
     return data;
   }

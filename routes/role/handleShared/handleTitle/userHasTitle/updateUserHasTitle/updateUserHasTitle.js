@@ -1,15 +1,15 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
-import { UpdateRoleHasTitle } from '../../../../../../repository/handleTitle/roleHasTitle/updateRoleHasTitle.js';
+import { UpdateUserHasTitle } from '../../../../../../repository/handleTitle/userHasTitle/updateUserHasTitle.js';
 
-const updateRoleHasTitle = async (req, res) => {
+const updateUserHasTitle = async (req, res) => {
   const dataBase = req.dataBase;
   const {
-    roleHasTitleID, titleID,
+    userHasTitleID, titleID,
   } = req.body;
-  const updateRoleHasTitleInstance = new UpdateRoleHasTitle();
+  const updateUserHasTitleInstance = new UpdateUserHasTitle();
   try {
-    await updateRoleHasTitleInstance.updateRoleHasTitle(dataBase, roleHasTitleID, titleID);
+    await updateUserHasTitleInstance.updateUserHasTitle(dataBase, userHasTitleID, titleID);
     res.status(200).json({ verificationMessage: 'Se actualizo exitosamente' });
   } catch (error) {
     if (error.status === 409) {
@@ -19,4 +19,4 @@ const updateRoleHasTitle = async (req, res) => {
     }
   }
 };
-export default updateRoleHasTitle;
+export default updateUserHasTitle;

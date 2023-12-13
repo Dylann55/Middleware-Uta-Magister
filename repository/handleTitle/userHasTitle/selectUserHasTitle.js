@@ -1,14 +1,14 @@
-class SelectRoleHasTitle {
+class SelectUserHasTitle {
   async selectUser() {
     throw new Error('Sobreescribir para obtener la instancia de la Base de datos');
   }
 }
 
-class SelectRoleHasTitle_SupaBase extends SelectRoleHasTitle {
-  async selectRoleHasTitle(dataBase, userID) {
-    const { data, error } = await dataBase.from('roleHasTitle')
+class SelectUserHasTitle_SupaBase extends SelectUserHasTitle {
+  async selectUserHasTitle(dataBase, userID) {
+    const { data, error } = await dataBase.from('userHasTitle')
       .select(`
-      roleHasTitleID,
+      userHasTitleID,
       documentTitle,
       formatID,
       titleID,
@@ -21,4 +21,4 @@ class SelectRoleHasTitle_SupaBase extends SelectRoleHasTitle {
   }
 }
 
-export { SelectRoleHasTitle_SupaBase as SelectRoleHasTitle };
+export { SelectUserHasTitle_SupaBase as SelectUserHasTitle };
