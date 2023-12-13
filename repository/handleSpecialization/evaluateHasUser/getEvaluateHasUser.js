@@ -5,10 +5,10 @@ class GetEvaluateHasUser {
 }
 
 class GetEvaluateHasUser_SupaBase extends GetEvaluateHasUser {
-  async getEvaluateHasUser(dataBase, roleHasUserID, specializationHasUserID) {
+  async getEvaluateHasUser(dataBase, userID, specializationHasUserID) {
     const { data, error } = await dataBase.from('evaluateHasUser')
       .select()
-      .eq('roleHasUserID', roleHasUserID)
+      .eq('userID', userID)
       .eq('specializationHasUserID', specializationHasUserID);
     if (error) { throw error; }
     return data;

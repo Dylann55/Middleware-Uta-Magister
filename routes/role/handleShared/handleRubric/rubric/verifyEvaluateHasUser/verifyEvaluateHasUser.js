@@ -3,10 +3,10 @@ import { GetEvaluateHasUser } from '../../../../../../repository/handleSpecializ
 
 const verifyEvaluateHasUser = async (req, res, next) => {
   const dataBase = req.dataBase;
-  const { specializationHasUserID, roleHasUserID } = req.body;
+  const { specializationHasUserID, userID } = req.body;
   const getEvaluateHasUserInstance = new GetEvaluateHasUser();
   try {
-    const data = await getEvaluateHasUserInstance.getEvaluateHasUser(dataBase, roleHasUserID, specializationHasUserID);
+    const data = await getEvaluateHasUserInstance.getEvaluateHasUser(dataBase, userID, specializationHasUserID);
     if (data) {
       req.body.evaluateHasUserID = data[0].evaluateHasUserID;
       next();
