@@ -12,6 +12,7 @@ const verifyAcademic = async (req, res, next) => {
     const data = await VerifyRoleInstance.verifyRole(dataBase, 'academic', user.id);
     if (data) {
       req.body.roleHasUserID = data.roleHasUserID;
+      req.body.userID = data.userID;
       next();
     } else {
       const searchAdministrativeInstance = new SearchAdministrative();

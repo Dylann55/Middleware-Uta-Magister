@@ -5,9 +5,10 @@ class DeleteQuestion {
 }
 
 class DeleteQuestion_SupaBase extends DeleteQuestion {
-  async deleteQuestion(dataBase, questionIDs) {
+  async deleteQuestion(dataBase, questionIDs, userID) {
     const { error } = await dataBase.from('question')
       .delete()
+      .eq('userID', userID)
       .in('questionID', questionIDs);
     if (error) {
       throw error;

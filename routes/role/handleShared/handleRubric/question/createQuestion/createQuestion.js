@@ -5,11 +5,11 @@ import { CreateQuestion } from '../../../../../../repository/handleSpecializatio
 const createQuestion = async (req, res) => {
   const dataBase = req.dataBase;
   const {
-    question, roleHasUserID,
+    question, userID,
   } = req.body;
   const createQuestionInstance = new CreateQuestion();
   try {
-    await createQuestionInstance.createQuestion(dataBase, question, roleHasUserID);
+    await createQuestionInstance.createQuestion(dataBase, question, userID);
     res.status(200).json({ verificationMessage: 'La Pregunta fue subido exitosamente' });
   } catch (error) {
     if (error.status === 409) {

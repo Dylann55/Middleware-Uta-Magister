@@ -5,11 +5,11 @@ import { UpdateQuestion } from '../../../../../../repository/handleSpecializatio
 const updateQuestion = async (req, res) => {
   const dataBase = req.dataBase;
   const {
-    questionID, roleHasUserID, question,
+    questionID, userID, question,
   } = req.body;
   const updateQuestionInstance = new UpdateQuestion();
   try {
-    await updateQuestionInstance.updateQuestion(dataBase, questionID, roleHasUserID, question);
+    await updateQuestionInstance.updateQuestion(dataBase, questionID, userID, question);
     res.status(200).json({ verificationMessage: 'Se actualizo exitosamente' });
   } catch (error) {
     if (error.status === 409) {

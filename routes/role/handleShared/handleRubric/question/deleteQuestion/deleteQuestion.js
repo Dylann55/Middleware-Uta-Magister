@@ -4,10 +4,10 @@ import { DeleteQuestion } from '../../../../../../repository/handleSpecializatio
 
 const deleteQuestion = async (req, res) => {
   const dataBase = req.dataBase;
-  const { questionIDs } = req.body;
+  const { questionIDs, userID } = req.body;
   const deleteQuestionInstance = new DeleteQuestion();
   try {
-    await deleteQuestionInstance.deleteQuestion(dataBase, questionIDs);
+    await deleteQuestionInstance.deleteQuestion(dataBase, questionIDs, userID);
     res.status(200).json({ verificationMessage: 'Se eliminó exitosamente' });
   } catch (error) {
     res.status(500).json({ error });

@@ -5,12 +5,12 @@ class UpdateQuestion {
 }
 
 class UpdateQuestion_SupaBase extends UpdateQuestion {
-  async updateQuestion(dataBase, questionID, roleHasUserID, question) {
+  async updateQuestion(dataBase, questionID, userID, question) {
     const { error } = await dataBase.from('question')
       .update({
         question,
       })
-      .eq('roleHasUserID', roleHasUserID)
+      .eq('userID', userID)
       .eq('questionID', questionID);
     if (error) { throw error; }
   }

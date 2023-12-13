@@ -5,10 +5,10 @@ class SelectQuestion {
 }
 
 class SelectQuestion_SupaBase extends SelectQuestion {
-  async selectQuestion(dataBase, roleHasUserID) {
+  async selectQuestion(dataBase, userID) {
     const { data, error } = await dataBase.from('question')
       .select()
-      .eq('roleHasUserID', roleHasUserID);
+      .eq('userID', userID);
     if (error) { throw error; }
     return data;
   }

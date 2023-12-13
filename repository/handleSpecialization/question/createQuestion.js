@@ -5,9 +5,9 @@ class CreateQuestion {
 }
 
 class CreateQuestion_SupaBase extends CreateQuestion {
-  async createQuestion(dataBase, question, roleHasUserID) {
+  async createQuestion(dataBase, question, userID) {
     const { error } = await dataBase.from('question').insert({
-      question, roleHasUserID,
+      question, userID,
     });
     if (error) { throw error; }
   }

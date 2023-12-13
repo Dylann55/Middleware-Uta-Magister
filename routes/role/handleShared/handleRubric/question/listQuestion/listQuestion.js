@@ -4,10 +4,10 @@ import { SelectQuestion } from '../../../../../../repository/handleSpecializatio
 
 const listQuestion = async (req, res) => {
   const dataBase = req.dataBase;
-  const { roleHasUserID } = req.body;
+  const { userID } = req.body;
   const selectQuestionInstance = new SelectQuestion();
   try {
-    const data = await selectQuestionInstance.selectQuestion(dataBase, roleHasUserID);
+    const data = await selectQuestionInstance.selectQuestion(dataBase, userID);
     res.status(200).json(data);
   } catch (error) {
     res.status(500).json({ error });
