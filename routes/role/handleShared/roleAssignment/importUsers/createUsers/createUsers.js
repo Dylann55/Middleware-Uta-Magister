@@ -1,6 +1,7 @@
 /* eslint-disable import/extensions */
 import { CreateUsers } from '../../../../../../repository/import/createUsers.js';
 import { GetRole } from '../../../../../../repository/utils/getRole.js';
+import getTimestamp from '../../../../../../utils/getTimestamp.js';
 
 const createUsers = async (req, res, next) => {
   const dataBase = req.dataBase;
@@ -8,9 +9,10 @@ const createUsers = async (req, res, next) => {
   const createUsersInstance = new CreateUsers();
   const getRoleInstance = new GetRole();
   try {
+    const entry = getTimestamp();
     const roles = await getRoleInstance.getRole(dataBase);
     const users = await createUsersInstance.createUsers(dataBase, excelData);
-    req.excelData = users.map((item) => ({ ...item, roleID: roles.Estudiante }));
+    req.excelData = users.map((item) => ({ ...item, roleID: roles.Estudiante, entry }));
     next();
   } catch (error) {
     if (error.status === 409) {

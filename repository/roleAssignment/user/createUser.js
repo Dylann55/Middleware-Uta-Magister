@@ -5,9 +5,9 @@ class CreateUser {
 }
 
 class CreateUser_SupaBase extends CreateUser {
-  async createUser(dataBase, id, rut, firstName, secondName, surnameM, surnameF, sex, stateCivil, birthday, address, email, phone, placeWork, phoneWork, job) {
+  async createUser(dataBase, id, rut, firstName, secondName, surnameM, surnameF, sex, stateCivil, birthday, address, email, phone, placeWork, phoneWork, job, entry) {
     const { data, error } = await dataBase.from('user').insert({
-      rut, firstName, secondName, surnameM, surnameF, sex, stateCivil, birthday, address, email, phone, id, placeWork, phoneWork, job,
+      rut, firstName, secondName, surnameM, surnameF, sex, stateCivil, birthday, address, email, phone, id, placeWork, phoneWork, job, entry,
     }).select()
       .maybeSingle();
     if (error) { throw error; }

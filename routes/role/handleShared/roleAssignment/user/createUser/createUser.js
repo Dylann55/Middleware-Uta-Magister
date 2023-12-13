@@ -1,6 +1,7 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
 import { CreateUser } from '../../../../../../repository/roleAssignment/user/createUser.js';
+import getTimestamp from '../../../../../../utils/getTimestamp.js';
 
 const createUser = async (req, res, next) => {
   const dataBase = req.dataBase;
@@ -10,7 +11,8 @@ const createUser = async (req, res, next) => {
   } = req.body;
   const createUserInstance = new CreateUser();
   try {
-    const user = await createUserInstance.createUser(dataBase, id, rut, firstName, secondName, surnameM, surnameF, sex, stateCivil, birthday, address, email, phone, placeWork, phoneWork, job);
+    const entry = getTimestamp();
+    const user = await createUserInstance.createUser(dataBase, id, rut, firstName, secondName, surnameM, surnameF, sex, stateCivil, birthday, address, email, phone, placeWork, phoneWork, job, entry);
     if (!user) {
       return res.status(409).json({ error: 'No se creo el usuario' });
     }
