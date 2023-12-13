@@ -1,11 +1,11 @@
 class DeleteUserHasTitle {
-  async UserHasTitle() {
+  async deleteUserHasTitle() {
     throw new Error('Sobreescribir para obtener la instancia de la Base de datos');
   }
 }
 
 class DeleteUserHasTitle_SupaBase extends DeleteUserHasTitle {
-  async UserHasTitle(dataBase, userHasTitleIDs) {
+  async deleteUserHasTitle(dataBase, userHasTitleIDs) {
     const { error } = await dataBase.from('userHasTitle')
       .delete()
       .in('userHasTitleID', userHasTitleIDs);
