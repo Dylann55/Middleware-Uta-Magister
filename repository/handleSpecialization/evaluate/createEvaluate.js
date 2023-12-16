@@ -5,9 +5,9 @@ class CreateEvaluate {
 }
 
 class CreateEvaluate_SupaBase extends CreateEvaluate {
-  async createEvaluate(dataBase, beforeProyect, formatID, specializationHasUserID, stageID, createdDate) {
+  async createEvaluate(dataBase, projectURL, formatID, specializationHasSemesterID, stageID, createdDate) {
     const { error } = await dataBase.from('evaluate').insert({
-      beforeProyect, formatID, specializationHasUserID, stageID, createdDate,
+      projectURL, formatID, specializationHasSemesterID, stageID, createdDate,
     });
     if (error) { throw error; }
   }

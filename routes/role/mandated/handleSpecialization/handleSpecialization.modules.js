@@ -6,8 +6,8 @@ import listEvaluation from './listEvaluation/listEvaluation.js';
 import createEvaluateHasUser from './createEvaluateHasUser/createEvaluateHasUser.js';
 import updateEvaluateHasUser from './updateEvaluateHasUser/updateEvaluateHasUser.js';
 import updateEvaluationStatus from './updateEvaluationStatus/updateEvaluationStatus.js';
-import validateSpecializationHasUserID from '../../../../validations/handleSpecialization/specializationHasUser/validateSpecializationHasUserID/validateSpecializationHasUserID.js';
-import validateAcademic_roleHasUserID from '../../../../validations/handleSpecialization/evaluationHasUser/validateAcademic_roleHasUserID/validateAcademic_roleHasUserID.js';
+import validateSpecializationHasSemesterID from '../../../../validations/handleSpecialization/specializationHasSemester/validateSpecializationHasSemesterID/validateSpecializationHasSemesterID.js';
+import validateAcademic_UserID from '../../../../validations/handleSpecialization/evaluationHasUser/validateAcademic_UserID/validateAcademic_UserID.js';
 import validateEvaluateHasUserID from '../../../../validations/handleSpecialization/evaluationHasUser/validateEvaluateHasUserID/validateEvaluateHasUserID.js';
 import validateEvaluationStatusID from '../../../../validations/handleSpecialization/evaluationHasUser/validateEvaluationStatusID/validateEvaluationStatusID.js';
 
@@ -19,8 +19,8 @@ export {
   createEvaluateHasUser,
   updateEvaluateHasUser,
   updateEvaluationStatus,
-  validateSpecializationHasUserID,
-  validateAcademic_roleHasUserID,
+  validateSpecializationHasSemesterID,
+  validateAcademic_UserID,
   validateEvaluateHasUserID,
   validateEvaluationStatusID,
 };

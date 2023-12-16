@@ -5,10 +5,19 @@ class GetSpecializationHasUser {
 }
 
 class GetSpecializationHasUser_SupaBase extends GetSpecializationHasUser {
-  async getSpecializationHasUser(dataBase, roleHasUserID) {
-    const { data, error } = await dataBase.from('specializationEvaluationAcademics')
-      .select()
-      .eq('roleHasUserID', roleHasUserID);
+  async getSpecializationHasUser(dataBase, userID) {
+    const { data, error } = await dataBase.from('specializationHasUser')
+      .select(`
+        specializationHasUserID,
+        specializationID,
+        userID,
+        statusID,
+        status(name),
+        specialization (name),
+        entrySemester (*),
+        completionSemester (*)
+      `)
+      .eq('userID', userID);
     if (error) { throw error; }
     return data;
   }

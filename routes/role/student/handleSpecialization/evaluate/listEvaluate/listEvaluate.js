@@ -3,10 +3,10 @@ import { SelectEvaluate } from '../../../../../../repository/handleSpecializatio
 
 const listEvaluate = async (req, res) => {
   const dataBase = req.dataBase;
-  const { specializationHasUserID, stageID } = req.body;
+  const { specializationHasSemesterID, stageID } = req.body;
   const selectEvaluateInstance = new SelectEvaluate();
   try {
-    const data = await selectEvaluateInstance.selectEvaluate(dataBase, specializationHasUserID, stageID);
+    const data = await selectEvaluateInstance.selectEvaluate(dataBase, specializationHasSemesterID, stageID);
     res.status(200).json(data);
   } catch (error) {
     if (error.status === 409) {

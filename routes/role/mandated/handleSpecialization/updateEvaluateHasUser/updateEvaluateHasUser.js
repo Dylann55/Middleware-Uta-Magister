@@ -4,18 +4,18 @@ import { UpdateEvaluateHasUser } from '../../../../../repository/handleSpecializ
 const updateEvaluateHasUser = async (req, res) => {
   const dataBase = req.dataBase;
   const {
-    evaluateHasUser1ID, evaluateHasUser2ID, evaluateHasUser3ID, academic1_roleHasUserID, academic2_roleHasUserID, academic3_roleHasUserID, specializationHasUserID,
+    evaluateHasUser1ID, evaluateHasUser2ID, evaluateHasUser3ID, academic1_userID, academic2_userID, academic3_userID, specializationHasSemesterID,
   } = req.body;
   const updateEvaluateHasUserInstance = new UpdateEvaluateHasUser();
   const dataArray = [
     {
-      evaluateHasUserID: evaluateHasUser1ID, roleHasUserID: academic1_roleHasUserID, academicCategory: 1, specializationHasUserID,
+      evaluateHasUserID: evaluateHasUser1ID, userID: academic1_userID, academicCategory: 1, specializationHasSemesterID,
     },
     {
-      evaluateHasUserID: evaluateHasUser2ID, roleHasUserID: academic2_roleHasUserID, academicCategory: 2, specializationHasUserID,
+      evaluateHasUserID: evaluateHasUser2ID, userID: academic2_userID, academicCategory: 2, specializationHasSemesterID,
     },
     {
-      evaluateHasUserID: evaluateHasUser3ID, roleHasUserID: academic3_roleHasUserID, academicCategory: 3, specializationHasUserID,
+      evaluateHasUserID: evaluateHasUser3ID, userID: academic3_userID, academicCategory: 3, specializationHasSemesterID,
     },
   ];
   try {

@@ -5,10 +5,10 @@ class VerifySpecializationHasUser {
 }
 
 class VerifySpecializationHasUser_SupaBase extends VerifySpecializationHasUser {
-  async verifySpecializationHasUser(dataBase, roleHasUserID, specializationHasUserID) {
-    const { data, error } = await dataBase.from('specializationEvaluationAcademics')
+  async verifySpecializationHasUser(dataBase, userID, specializationHasUserID) {
+    const { data, error } = await dataBase.from('specializationHasUser')
       .select()
-      .eq('roleHasUserID', roleHasUserID)
+      .eq('userID', userID)
       .eq('specializationHasUserID', specializationHasUserID)
       .maybeSingle();
     if (error) { throw error; }

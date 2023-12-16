@@ -7,16 +7,16 @@ const createEvaluate = async (req, res) => {
   const dataBase = req.dataBase;
   const file = req.file;
   const {
-    stage, stageID, specializationHasUserID, semesterID, specializationID, formatID,
+    stageID, specializationHasSemesterID, typeEvaluateID, semesterID, specializationID, formatID,
   } = req.data;
-  const bucketLocation = `image/${stage}/${specializationID}/${semesterID}`;
+  const bucketLocation = `image/Evaluate/${stageID}/${specializationID}/${typeEvaluateID}/${semesterID}`;
   const createStorageInstance = new CreateStorage();
   const createEvaluateInstance = new CreateEvaluate();
   try {
     const createdDate = getTimestamp();
-    const beforeProyect = await createStorageInstance.createStorage(dataBase, bucketLocation, file);
-    await createEvaluateInstance.createEvaluate(dataBase, beforeProyect, formatID, specializationHasUserID, stageID, createdDate);
-    res.status(200).json({ verificationMessage: 'El AnteProyecto fue subido exitosamente' });
+    const projectURL = await createStorageInstance.createStorage(dataBase, bucketLocation, file);
+    await createEvaluateInstance.createEvaluate(dataBase, projectURL, formatID, specializationHasSemesterID, stageID, createdDate);
+    res.status(200).json({ verificationMessage: 'El documento fue subido exitosamente' });
   } catch (error) {
     if (error.status === 409) {
       res.status(409).json({ message: error.message });

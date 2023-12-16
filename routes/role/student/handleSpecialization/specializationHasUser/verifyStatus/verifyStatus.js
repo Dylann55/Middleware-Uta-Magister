@@ -1,23 +1,16 @@
 /* eslint-disable import/extensions */
-import { GetSemester } from '../../../../../../repository/handleSpecialization/semester/getSemester.js';
-import getTimestamp from '../../../../../../utils/getTimestamp.js';
+import { VerifyStatus } from '../../../../../../repository/handleSpecialization/specializationHasUser/verifyStatus.js';
 
-const verifyEvaluateSemester = async (req, res, next) => {
+const verifyStatus = async (req, res, next) => {
   const dataBase = req.dataBase;
-  const { semesterID } = req.body;
-  const getSemesterInstance = new GetSemester();
+  const { userID, specializationHasUserID } = req.body;
+  const verifyStatusInstance = new VerifyStatus();
   try {
-    const { startDate, finishDate } = await getSemesterInstance.getSemester(dataBase, semesterID);
-    const timestamp = getTimestamp();
-
-    const startDateObj = new Date(startDate);
-    const finishDateObj = new Date(finishDate);
-    const timestampObj = new Date(timestamp);
-
-    if (timestampObj >= startDateObj && timestampObj <= finishDateObj) {
+    const data = await verifyStatusInstance.verifyStatus(dataBase, userID, specializationHasUserID, 8);
+    if (data) {
       next();
     } else {
-      return res.status(409).json({ error: 'El tiempo está fuera del periodo del semestre' });
+      return res.status(409).json({ error: 'No tienes permiso para modificar la especialización' });
     }
   } catch (error) {
     if (error.status === 409) {
@@ -27,4 +20,4 @@ const verifyEvaluateSemester = async (req, res, next) => {
     }
   }
 };
-export default verifyEvaluateSemester;
+export default verifyStatus;

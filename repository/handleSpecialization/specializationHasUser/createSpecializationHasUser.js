@@ -5,9 +5,9 @@ class CreateSpecializationHasUser {
 }
 
 class CreateSpecializationHasUser_SupaBase extends CreateSpecializationHasUser {
-  async createSpecializationHasUser(dataBase, roleHasUserID, specializationID, semesterID) {
+  async createSpecializationHasUser(dataBase, userID, specializationID, entrySemester) {
     const { error } = await dataBase.from('specializationHasUser').insert({
-      roleHasUserID, specializationID, semesterID,
+      userID, specializationID, entrySemester,
     });
     if (error) { throw error; }
   }

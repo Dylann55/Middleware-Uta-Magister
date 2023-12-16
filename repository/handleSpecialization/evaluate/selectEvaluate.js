@@ -5,10 +5,13 @@ class SelectEvaluate {
 }
 
 class SelectEvaluate_SupaBase extends SelectEvaluate {
-  async selectEvaluate(dataBase, specializationHasUserID, stageID) {
+  async selectEvaluate(dataBase, specializationHasSemesterID, stageID) {
     const { data, error } = await dataBase.from('evaluate')
-      .select()
-      .eq('specializationHasUserID', specializationHasUserID)
+      .select(`
+      *,
+      stage(*)
+      `)
+      .eq('specializationHasSemesterID', specializationHasSemesterID)
       .eq('stageID', stageID);
     if (error) { throw error; }
     return data;

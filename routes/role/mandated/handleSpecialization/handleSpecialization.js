@@ -7,8 +7,8 @@ import {
   createEvaluateHasUser,
   updateEvaluateHasUser,
   updateEvaluationStatus,
-  validateSpecializationHasUserID,
-  validateAcademic_roleHasUserID,
+  validateSpecializationHasSemesterID,
+  validateAcademic_UserID,
   validateEvaluateHasUserID,
   validateEvaluationStatusID,
 } from './handleSpecialization.modules.js';
@@ -19,6 +19,6 @@ handleSpecializationRoute.get('/semester', listSemester);
 
 handleSpecializationRoute.route('/')
   .get(listEvaluation)
-  .post(validateAcademic_roleHasUserID, validateSpecializationHasUserID, validateEvaluationStatusID, createEvaluateHasUser, updateEvaluationStatus)
-  .put(validateAcademic_roleHasUserID, validateEvaluateHasUserID, validateSpecializationHasUserID, updateEvaluateHasUser);
+  .post(validateAcademic_UserID, validateSpecializationHasSemesterID, validateEvaluationStatusID, createEvaluateHasUser, updateEvaluationStatus)
+  .put(validateAcademic_UserID, validateEvaluateHasUserID, validateSpecializationHasSemesterID, updateEvaluateHasUser);
 export default handleSpecializationRoute;

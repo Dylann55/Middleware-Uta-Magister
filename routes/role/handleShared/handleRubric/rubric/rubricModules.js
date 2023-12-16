@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import express from 'express';
 import verifyEvaluateHasUser from './verifyEvaluateHasUser/verifyEvaluateHasUser.js';
-import listRubricHasQuestionHasEvaluate from './listRubricHasQuestionHasEvaluate/listRubricHasQuestionHasEvaluate.js';
+import listEvaluationRubric from './listEvaluationRubric/listEvaluationRubric.js';
 import listRubric from './listRubric/listRubric.js';
 import createRubric from './createRubric/createRubric.js';
 import updateRubric from './updateRubric/updateRubric.js';
@@ -16,7 +16,7 @@ import validateRubricName from '../../../../../validations/handleSpecialization/
 export {
   express,
   verifyEvaluateHasUser,
-  listRubricHasQuestionHasEvaluate,
+  listEvaluationRubric,
   listRubric,
   createRubric,
   updateRubric,

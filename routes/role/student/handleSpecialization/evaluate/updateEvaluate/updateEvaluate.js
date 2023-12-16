@@ -7,15 +7,15 @@ const updateEvaluate = async (req, res) => {
   const dataBase = req.dataBase;
   const file = req.file;
   const {
-    stage, evaluateID, semesterID, specializationID, formatID,
+    stageID, typeEvaluateID, evaluateID, semesterID, specializationID, formatID,
   } = req.data;
-  const bucketLocation = `image/${stage}/${specializationID}/${semesterID}`;
+  const bucketLocation = `image/Evaluate/${stageID}/${specializationID}/${typeEvaluateID}/${semesterID}`;
   const createStorageInstance = new CreateStorage();
   const updateEvaluateInstance = new UpdateEvaluate();
   try {
     const updateDate = getTimestamp();
-    const beforeProyect = await createStorageInstance.createStorage(dataBase, bucketLocation, file);
-    await updateEvaluateInstance.updateEvaluate(dataBase, evaluateID, beforeProyect, formatID, updateDate);
+    const projectURL = await createStorageInstance.createStorage(dataBase, bucketLocation, file);
+    await updateEvaluateInstance.updateEvaluate(dataBase, evaluateID, projectURL, formatID, updateDate);
     res.status(200).json({ verificationMessage: 'El AnteProyecto fue actualizo exitosamente' });
   } catch (error) {
     if (error.status === 409) {

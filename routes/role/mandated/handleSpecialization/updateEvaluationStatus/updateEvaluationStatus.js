@@ -1,14 +1,14 @@
 /* eslint-disable import/extensions */
-import { UpdateEvaluationStatus } from '../../../../../repository/handleSpecialization/specializationHasUser/updateEvaluationStatus.js';
+import { UpdateEvaluationStatus } from '../../../../../repository/handleSpecialization/specializationHasSemester/updateEvaluationStatus.js';
 
 const updateEvaluationStatus = async (req, res) => {
   const dataBase = req.dataBase;
   const {
-    evaluationStatusID, specializationHasUserID,
+    evaluationStatusID, specializationHasSemesterID,
   } = req.body;
   const updateEvaluationStatusInstance = new UpdateEvaluationStatus();
   try {
-    await updateEvaluationStatusInstance.updateEvaluationStatus(dataBase, specializationHasUserID, evaluationStatusID);
+    await updateEvaluationStatusInstance.updateEvaluationStatus(dataBase, specializationHasSemesterID, evaluationStatusID);
     res.status(200).json({ verificationMessage: 'Se han asignados academícos exitosamente' });
   } catch (error) {
     if (error.status === 409) {

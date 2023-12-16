@@ -4,13 +4,13 @@ import { CreateEvaluateHasUser } from '../../../../../repository/handleSpecializ
 const createEvaluateHasUser = async (req, res, next) => {
   const dataBase = req.dataBase;
   const {
-    academic1_roleHasUserID, academic2_roleHasUserID, academic3_roleHasUserID, specializationHasUserID,
+    academic1_userID, academic2_userID, academic3_userID, specializationHasSemesterID,
   } = req.body;
   const createEvaluateHasUserInstance = new CreateEvaluateHasUser();
   const dataArray = [
-    { roleHasUserID: academic1_roleHasUserID, academicCategory: 1, specializationHasUserID },
-    { roleHasUserID: academic2_roleHasUserID, academicCategory: 2, specializationHasUserID },
-    { roleHasUserID: academic3_roleHasUserID, academicCategory: 3, specializationHasUserID },
+    { userID: academic1_userID, academicCategory: 1, specializationHasSemesterID },
+    { userID: academic2_userID, academicCategory: 2, specializationHasSemesterID },
+    { userID: academic3_userID, academicCategory: 3, specializationHasSemesterID },
   ];
   try {
     await createEvaluateHasUserInstance.createEvaluateHasUser(dataBase, dataArray);

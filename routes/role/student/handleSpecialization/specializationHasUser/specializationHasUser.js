@@ -6,9 +6,7 @@ import {
   listSpecializationHasUser,
   createSpecializationHasUser,
   updateSpecializationHasUser,
-  deleteSpecializationHasUser,
   verifyStatus,
-  validateArraySpecializationHasUserID,
   validateSpecializationHasUserID,
   validateSemesterID,
   validateSpecializationID,
@@ -20,7 +18,6 @@ specializationHasUserRoute.get('/semester', listSemester);
 
 specializationHasUserRoute.route('/')
   .get(listSpecializationHasUser)
-  .post(validateSemesterID, validateSpecializationID, verifyStatus, createSpecializationHasUser)
-  .put(validateSpecializationHasUserID, validateSpecializationID, validateSemesterID, verifyStatus, updateSpecializationHasUser)
-  .delete(validateArraySpecializationHasUserID, verifyStatus, deleteSpecializationHasUser);
+  .post(validateSemesterID, validateSpecializationID, createSpecializationHasUser)
+  .put(validateSpecializationHasUserID, validateSemesterID, validateSpecializationID, verifyStatus, updateSpecializationHasUser);
 export default specializationHasUserRoute;

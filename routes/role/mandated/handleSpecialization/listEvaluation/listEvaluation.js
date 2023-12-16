@@ -1,11 +1,11 @@
 /* eslint-disable import/extensions */
-import { SelectSpecializationHasUser } from '../../../../../repository/handleSpecialization/specializationHasUser/selectSpecializationHasUser.js';
+import { SelectSpecializationEvaluationAcademics } from '../../../../../repository/handleSpecialization/specializationEvaluationAcademics/selectSpecializationEvaluationAcademics.js';
 
 const listEvaluation = async (req, res) => {
   const dataBase = req.dataBase;
-  const selectSpecializationHasUserInstance = new SelectSpecializationHasUser();
+  const selectSpecializationEvaluationAcademicsInstance = new SelectSpecializationEvaluationAcademics();
   try {
-    const data = await selectSpecializationHasUserInstance.selectSpecializationHasUser(dataBase);
+    const data = await selectSpecializationEvaluationAcademicsInstance.selectSpecializationEvaluationAcademics(dataBase);
     res.status(200).json(data);
   } catch (error) {
     if (error.status === 409) {

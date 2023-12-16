@@ -5,10 +5,10 @@ class UpdateEvaluate {
 }
 
 class UpdateEvaluate_SupaBase extends UpdateEvaluate {
-  async updateEvaluate(dataBase, evaluateID, beforeProyect, formatID, updateDate) {
+  async updateEvaluate(dataBase, evaluateID, projectURL, formatID, updateDate) {
     const { error } = await dataBase.from('evaluate')
       .update({
-        beforeProyect, formatID, updateDate,
+        projectURL, formatID, updateDate,
       })
       .eq('evaluateID', evaluateID);
     if (error) { throw error; }

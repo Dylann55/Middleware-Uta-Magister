@@ -1,19 +1,17 @@
 /* eslint-disable max-len */
 /* eslint-disable import/extensions */
 import {
-  express, listEvaluate, createEvaluate, updateEvalute, getBeforeProyect, getSemesterID, deleteBeforeProyect, handleFileUpload, verifyFirstEvaluationStatus, verifySecondEvaluationStatus, verifyFirstEvaluationListStatus, verifySecondEvaluationListStatus, verifySpecializationHasUser, validateEvaluateID, validateSpecializationHasUserID,
+  express, listEvaluationRubric, listEvaluate, listSpecializationHasStudent, createEvaluate, updateEvalute, getProjectURL, deleteProjectURL, handleFileUpload, verifyEvaluationStatus, verifySpecializationHasStudent, validateEvaluateID, validateSpecializationHasUserID, validateSpecializationHasSemesterID, validateStageID, validateAcademicID,
 } from './evaluate.modules.js';
 
 const evaluateRoute = express.Router();
 
-evaluateRoute.route('/FirstStage')
-  .get(validateSpecializationHasUserID, verifySpecializationHasUser, verifyFirstEvaluationListStatus, listEvaluate)
-  .post(validateSpecializationHasUserID, verifySpecializationHasUser, verifyFirstEvaluationStatus, getSemesterID, handleFileUpload, createEvaluate)
-  .put(validateSpecializationHasUserID, validateEvaluateID, verifySpecializationHasUser, verifyFirstEvaluationStatus, getSemesterID, getBeforeProyect, handleFileUpload, deleteBeforeProyect, updateEvalute);
+evaluateRoute.get('/specializationHasStudent', validateSpecializationHasUserID, validateSpecializationHasSemesterID, listSpecializationHasStudent);
+evaluateRoute.get('/evaluationRubric', validateEvaluateID, validateStageID, validateSpecializationHasUserID, validateSpecializationHasSemesterID, validateAcademicID, verifySpecializationHasStudent, listEvaluationRubric);
 
-evaluateRoute.route('/SecondStage')
-  .get(validateSpecializationHasUserID, verifySpecializationHasUser, verifySecondEvaluationListStatus, listEvaluate)
-  .post(validateSpecializationHasUserID, verifySpecializationHasUser, verifySecondEvaluationStatus, getSemesterID, handleFileUpload, createEvaluate)
-  .put(validateSpecializationHasUserID, validateEvaluateID, verifySpecializationHasUser, verifySecondEvaluationStatus, getSemesterID, getBeforeProyect, handleFileUpload, deleteBeforeProyect, updateEvalute);
+evaluateRoute.route('/')
+  .get(validateStageID, validateSpecializationHasUserID, validateSpecializationHasSemesterID, verifySpecializationHasStudent, listEvaluate)
+  .post(validateStageID, validateSpecializationHasUserID, validateSpecializationHasSemesterID, verifySpecializationHasStudent, verifyEvaluationStatus, handleFileUpload, createEvaluate)
+  .put(validateEvaluateID, validateStageID, validateSpecializationHasUserID, validateSpecializationHasSemesterID, verifySpecializationHasStudent, verifyEvaluationStatus, getProjectURL, handleFileUpload, deleteProjectURL, updateEvalute);
 
 export default evaluateRoute;

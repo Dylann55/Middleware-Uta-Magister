@@ -3,7 +3,7 @@
 import {
   express,
   verifyEvaluateHasUser,
-  listRubricHasQuestionHasEvaluate,
+  listEvaluationRubric,
   listRubric,
   createRubric,
   updateRubric,
@@ -18,7 +18,7 @@ import {
 
 const rubricRoute = express.Router();
 
-rubricRoute.get('/rubricHasQuestionHasEvaluate', validateEvaluateID, validateSpecializationHasUserID, verifyEvaluateHasUser, listRubricHasQuestionHasEvaluate);
+rubricRoute.get('/evaluationRubric', validateEvaluateID, validateSpecializationHasUserID, verifyEvaluateHasUser, listEvaluationRubric);
 
 rubricRoute.route('/')
   .get(validateEvaluateID, validateSpecializationHasUserID, verifyEvaluateHasUser, listRubric)
