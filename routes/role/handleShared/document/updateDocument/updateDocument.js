@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import { UpdateDocument } from '../../../../../repository/storage/document/updateDocument.js';
+import { UpdateDocument } from '../../../../../repository/document/updateDocument.js';
 
 const updateDocument = async (req, res) => {
   const dataBase = req.dataBase;

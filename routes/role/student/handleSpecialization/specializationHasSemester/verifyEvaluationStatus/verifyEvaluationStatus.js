@@ -4,8 +4,8 @@ const verifyEvaluationStatus = async (req, res, next) => {
   try {
     if (
       (evaluationStatusID !== 2 && evaluationStatusID !== 9 && evaluationStatusID !== 16)
-      && ((stageID === 1 && evaluationStatusID >= 1 && evaluationStatusID <= 9)
-        || (stageID === 2 && evaluationStatusID >= 10 && evaluationStatusID <= 16))
+      && ((stageID == 1 && evaluationStatusID >= 1 && evaluationStatusID <= 9)
+        || (stageID == 2 && evaluationStatusID >= 10 && evaluationStatusID <= 16))
     ) {
       next();
     } else {

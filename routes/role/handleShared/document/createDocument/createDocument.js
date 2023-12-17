@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import { CreateStorage } from '../../../../../repository/storage/createStorage.js';
-import { CreateDocument } from '../../../../../repository/storage/document/createDocument.js';
+import { CreateDocument } from '../../../../../repository/document/createDocument.js';
 
 const createDocument = async (req, res) => {
   const dataBase = req.dataBase;

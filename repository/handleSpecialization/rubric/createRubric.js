@@ -5,9 +5,9 @@ class CreateRubric {
 }
 
 class CreateRubric_SupaBase extends CreateRubric {
-  async createRubric(dataBase, description, rubricName, evaluateHasUserID, evaluateID) {
+  async createRubric(dataBase, description, rubricName, comment, evaluateHasUserID, evaluateID) {
     const { error } = await dataBase.from('rubric').insert({
-      description, rubricName, evaluateHasUserID, evaluateID,
+      description, rubricName, comment, evaluateHasUserID, evaluateID,
     });
     if (error) { throw error; }
   }

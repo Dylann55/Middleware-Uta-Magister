@@ -5,11 +5,11 @@ import { UpdateRubric } from '../../../../../../repository/handleSpecialization/
 const updateRubric = async (req, res) => {
   const dataBase = req.dataBase;
   const {
-    rubricID, description, rubricName, evaluateHasUserID,
+    rubricID, description, rubricName, comment, evaluateHasUserID,
   } = req.body;
   const updateRubricInstance = new UpdateRubric();
   try {
-    await updateRubricInstance.updateRubric(dataBase, rubricID, description, rubricName, evaluateHasUserID);
+    await updateRubricInstance.updateRubric(dataBase, rubricID, description, rubricName, comment, evaluateHasUserID);
     res.status(200).json({ verificationMessage: 'Se actualizo exitosamente' });
   } catch (error) {
     if (error.status === 409) {

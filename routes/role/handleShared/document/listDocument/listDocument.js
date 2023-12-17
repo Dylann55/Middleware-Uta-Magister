@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import { SelectDocument } from '../../../../../repository/storage/document/selectDocument.js';
+import { SelectDocument } from '../../../../../repository/document/selectDocument.js';
 
 const listDocument = async (req, res) => {
   const dataBase = req.dataBase;

@@ -5,11 +5,11 @@ import { CreateRubric } from '../../../../../../repository/handleSpecialization/
 const createRubric = async (req, res) => {
   const dataBase = req.dataBase;
   const {
-    description, rubricName, evaluateHasUserID, evaluateID,
+    description, rubricName, comment, evaluateHasUserID, evaluateID,
   } = req.body;
   const createRubricInstance = new CreateRubric();
   try {
-    await createRubricInstance.createRubric(dataBase, description, rubricName, evaluateHasUserID, evaluateID);
+    await createRubricInstance.createRubric(dataBase, description, rubricName, comment, evaluateHasUserID, evaluateID);
     res.status(200).json({ verificationMessage: 'La Rubrica fue subido exitosamente' });
   } catch (error) {
     if (error && error.code === '23505') {

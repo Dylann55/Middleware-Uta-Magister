@@ -7,7 +7,10 @@ class SelectRubric {
 class SelectRubric_SupaBase extends SelectRubric {
   async selectRubric(dataBase, evaluateHasUserID, evaluateID) {
     const { data, error } = await dataBase.from('rubric')
-      .select()
+      .select(`
+      *,
+      status(*)
+      `)
       .eq('evaluateID', evaluateID)
       .eq('evaluateHasUserID', evaluateHasUserID);
     if (error) {

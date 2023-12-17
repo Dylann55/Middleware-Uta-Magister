@@ -8,7 +8,7 @@ class SelectDefaultQuestion_SupaBase extends SelectDefaultQuestion {
   async selectDefaultQuestion(dataBase) {
     const { data, error } = await dataBase.from('question')
       .select()
-      .is('roleHasUserID', null);
+      .is('userID', null);
     if (error) { throw error; }
     return data;
   }

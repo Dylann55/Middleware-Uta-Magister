@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import { DeleteStorage } from '../../../../../repository/storage/deleteStorage.js';
-import { DeleteDocuments } from '../../../../../repository/storage/document/deleteDocuments.js';
+import { DeleteDocuments } from '../../../../../repository/document/deleteDocuments.js';
 import getUniqueFileName from '../../../../../repository/storage/getUniqueFileName.js';
 
 const deleteDocument = async (req, res) => {

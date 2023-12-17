@@ -5,10 +5,10 @@ class UpdateRubric {
 }
 
 class UpdateRubric_SupaBase extends UpdateRubric {
-  async updateRubric(dataBase, rubricID, description, rubricName, evaluateHasUserID) {
+  async updateRubric(dataBase, rubricID, description, rubricName, comment, evaluateHasUserID) {
     const { error } = await dataBase.from('rubric')
       .update({
-        description, rubricName,
+        description, rubricName, comment,
       })
       .eq('evaluateHasUserID', evaluateHasUserID)
       .eq('rubricID', rubricID);

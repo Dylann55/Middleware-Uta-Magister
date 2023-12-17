@@ -1,12 +1,12 @@
 /* eslint-disable import/extensions */
-import { SelectSecondSpecializationHasUser } from '../../../../../repository/handleSpecialization/specializationHasUser/selectSecondSpecializationHasUser.js';
+import { SelectSecondSpecializationHasSemester } from '../../../../../repository/handleSpecialization/specializationEvaluationAcademics/selectSecondSpecializationHasSemester.js';
 
 const listEvaluation = async (req, res) => {
   const dataBase = req.dataBase;
-  const { roleHasUserID } = req.body;
-  const selectSecondSpecializationHasUserInstance = new SelectSecondSpecializationHasUser();
+  const { userID } = req.body;
+  const selectSecondSpecializationHasSemesterInstance = new SelectSecondSpecializationHasSemester();
   try {
-    const data = await selectSecondSpecializationHasUserInstance.selectSecondSpecializationHasUser(dataBase, roleHasUserID);
+    const data = await selectSecondSpecializationHasSemesterInstance.selectSecondSpecializationHasSemester(dataBase, userID);
     res.status(200).json(data);
   } catch (error) {
     if (error.status === 409) {
