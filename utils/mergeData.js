@@ -1,26 +1,41 @@
-/* eslint-disable no-restricted-syntax */
 function mergeData(data1, data2) {
-  const mergedData = [];
+  const propertiesToAdd = {
+    director_userID: null,
+    director_evaluateHasUserID: null,
+    director_fullName: null,
+    director_rut: null,
+    director_email: null,
+    codirector_userID: null,
+    codirector_evaluateHasUserID: null,
+    codirector_fullName: null,
+    codirector_rut: null,
+    codirector_email: null,
+  };
 
-  // Crear un conjunto de todas las claves presentes en ambas listas
-  const allKeys = new Set([...Object.keys(data1[0]), ...Object.keys(data2[0])]);
+  // Agregar las propiedades a cada objeto en data1
+  const updatedData1 = data1.map((item) => ({ ...item, ...propertiesToAdd }));
 
-  // Iterar sobre cada objeto en ambas listas
-  for (const key of allKeys) {
-    const mergedObject = {};
+  const propertiesToAdd2 = {
+    guideAcademic_userID: null,
+    guideAcademic_evaluateHasUserID: null,
+    guideAcademic_fullName: null,
+    guideAcademic_rut: null,
+    guideAcademic_email: null,
+    academicA_userID: null,
+    academicA_evaluateHasUserID: null,
+    academicA_fullName: null,
+    academicA_rut: null,
+    academicA_email: null,
+    academicB_userID: null,
+    academicB_evaluateHasUserID: null,
+    academicB_fullName: null,
+    academicB_rut: null,
+    academicB_email: null,
+  };
 
-    // Buscar el objeto correspondiente en data1 y data2
-    const obj1 = data1.find((obj) => obj[key] !== undefined);
-    const obj2 = data2.find((obj) => obj[key] !== undefined);
+  const updatedData2 = data2.map((item) => ({ ...item, ...propertiesToAdd2 }));
 
-    // Combinar los valores según la clave
-    mergedObject[key] = obj1 ? obj1[key] : null;
-    mergedObject[key] += obj2 ? obj2[key] : null;
-
-    // Agregar el objeto combinado a la lista final
-    mergedData.push(mergedObject);
-  }
-
+  const mergedData = [...updatedData1, ...updatedData2];
   return mergedData;
 }
 
