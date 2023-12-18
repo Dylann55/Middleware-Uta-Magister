@@ -2,6 +2,7 @@
 import express from 'express';
 import listAcademic from './listAcademic/listAcademic.js';
 import listMandated from './listMandated/listAcademic.js';
+import listDirector from './listDirector/listDirector.js';
 import listSemester from '../../handleShared/semester/listSemester/listSemester.js';
 import listEvaluation from './listEvaluation/listEvaluation.js';
 import createEvaluateHasUser from './createEvaluateHasUser/createEvaluateHasUser.js';
@@ -17,6 +18,7 @@ export {
   express,
   listAcademic,
   listMandated,
+  listDirector,
   listSemester,
   listEvaluation,
   createEvaluateHasUser,

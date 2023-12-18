@@ -3,6 +3,7 @@ import {
   express,
   listAcademic,
   listMandated,
+  listDirector,
   listSemester,
   listEvaluation,
   createEvaluateHasUser,
@@ -19,6 +20,7 @@ const handleSpecializationRoute = express.Router();
 handleSpecializationRoute.get('/academic', listAcademic);
 handleSpecializationRoute.get('/semester', listSemester);
 handleSpecializationRoute.get('/mandated', listMandated);
+handleSpecializationRoute.get('/director', listDirector);
 
 handleSpecializationRoute.route('/')
   .get(validateTypeEvaluateID, listEvaluation)
