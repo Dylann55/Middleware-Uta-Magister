@@ -5,9 +5,9 @@ class CreateTitle {
 }
 
 class CreateTitle_SupaBase extends CreateTitle {
-  async createTitle(dataBase, name, typeID, universityID) {
+  async createTitle(dataBase, name, typeID, universityID, departamentTitle) {
     const { error } = await dataBase.from('title').insert({
-      name, typeID, universityID,
+      name, typeID, universityID, departamentTitle,
     });
     if (error) { throw error; }
   }

@@ -5,8 +5,8 @@ class SelectSpecializationHasAcademic {
 }
 
 class SelectSpecializationHasAcademic_SupaBase extends SelectSpecializationHasAcademic {
-  async selectSpecializationHasAcademic(dataBase, specializationHasSemesterID) {
-    const { data, error } = await dataBase.from('specializationEvaluationAcademics')
+  async selectSpecializationHasAcademic(dataBase, table, specializationHasSemesterID) {
+    const { data, error } = await dataBase.from(table)
       .select()
       .eq('specializationHasSemesterID', specializationHasSemesterID)
       .maybeSingle();

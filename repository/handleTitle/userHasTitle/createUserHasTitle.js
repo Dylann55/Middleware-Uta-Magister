@@ -5,9 +5,9 @@ class CreateUserHasTitle {
 }
 
 class CreateUserHasTitle_SupaBase extends CreateUserHasTitle {
-  async createUserHasTitle(dataBase, userID, formatID, titleID, documentTitle) {
+  async createUserHasTitle(dataBase, userID, formatID, titleID, documentTitle, yearTitle) {
     const { error } = await dataBase.from('userHasTitle').insert({
-      userID, formatID, titleID, documentTitle,
+      userID, formatID, titleID, documentTitle, yearTitle,
     });
     if (error) { throw error; }
   }

@@ -1,12 +1,12 @@
 /* eslint-disable import/extensions */
 import { SelectSpecializationHasStudent } from '../../../../../../repository/handleSpecialization/specializationEvaluationAcademics/selectSpecializationHasStudent.js';
 
-const listSpecializationHasStudent = async (req, res) => {
+const listPreliminaryProjectEvaluation = async (req, res) => {
   const dataBase = req.dataBase;
   const { userID, specializationHasUserID, specializationHasSemesterID } = req.body;
   const selectSpecializationHasStudentInstance = new SelectSpecializationHasStudent();
   try {
-    const data = await selectSpecializationHasStudentInstance.selectSpecializationHasStudent(dataBase, userID, specializationHasUserID, specializationHasSemesterID);
+    const data = await selectSpecializationHasStudentInstance.selectSpecializationHasStudent(dataBase, 'preliminaryProjectEvaluation', userID, specializationHasUserID, specializationHasSemesterID);
     res.status(200).json(data);
   } catch (error) {
     if (error.status === 409) {
@@ -16,4 +16,4 @@ const listSpecializationHasStudent = async (req, res) => {
     }
   }
 };
-export default listSpecializationHasStudent;
+export default listPreliminaryProjectEvaluation;

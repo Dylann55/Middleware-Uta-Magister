@@ -3,6 +3,7 @@ import {
   express,
   firstStageRoute,
   secondStageRoute,
+  thesisEvaluationRoute,
   listSemester,
   handleRubricRoute,
   evaluateRoute,
@@ -11,6 +12,7 @@ import {
 const academicRoute = express.Router();
 academicRoute.use('/firstStage', firstStageRoute);
 academicRoute.use('/secondStage', secondStageRoute);
+academicRoute.use('/thesisEvaluation', thesisEvaluationRoute);
 academicRoute.get('/semester', listSemester);
 academicRoute.use('/evaluate', evaluateRoute);
 academicRoute.use('/handleRubric', handleRubricRoute);

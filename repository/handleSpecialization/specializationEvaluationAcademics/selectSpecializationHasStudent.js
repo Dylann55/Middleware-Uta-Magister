@@ -5,8 +5,8 @@ class SelectSpecializationHasStudent {
 }
 
 class SelectSpecializationHasStudent_SupaBase extends SelectSpecializationHasStudent {
-  async selectSpecializationHasStudent(dataBase, userID, specializationHasUserID, specializationHasSemesterID) {
-    const { data, error } = await dataBase.from('specializationEvaluationAcademics')
+  async selectSpecializationHasStudent(dataBase, table, userID, specializationHasUserID, specializationHasSemesterID) {
+    const { data, error } = await dataBase.from(table)
       .select()
       .eq('userID', userID)
       .eq('specializationHasUserID', specializationHasUserID)

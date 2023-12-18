@@ -1,12 +1,15 @@
 /* eslint-disable import/extensions */
 import { VerifySpecializationHasStudent } from '../../../../../../repository/handleSpecialization/specializationEvaluationAcademics/verifySpecializationHasStudent.js';
+import getTypeEvaluation from '../../../../../../utils/getTypeEvaluation.js';
 
 const verifySpecializationHasStudent = async (req, res, next) => {
   const dataBase = req.dataBase;
-  const { userID, specializationHasUserID, specializationHasSemesterID } = req.body;
+  const {
+    typeEvaluateID, userID, specializationHasUserID, specializationHasSemesterID,
+  } = req.body;
   const verifySpecializationHasStudentInstance = new VerifySpecializationHasStudent();
   try {
-    const data = await verifySpecializationHasStudentInstance.verifySpecializationHasStudent(dataBase, userID, specializationHasUserID, specializationHasSemesterID);
+    const data = await verifySpecializationHasStudentInstance.verifySpecializationHasStudent(dataBase, getTypeEvaluation(typeEvaluateID), userID, specializationHasUserID, specializationHasSemesterID);
     if (data) {
       req.body.semesterID = data.semesterID;
       req.body.typeEvaluateID = data.typeEvaluateID;

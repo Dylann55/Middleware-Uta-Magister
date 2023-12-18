@@ -6,7 +6,7 @@ class SelectFirstSpecializationHasSemester {
 
 class SelectFirstSpecializationHasSemester_SupaBase extends SelectFirstSpecializationHasSemester {
   async selectFirstSpecializationHasSemester(dataBase, userID) {
-    const { data, error } = await dataBase.from('specializationEvaluationAcademics')
+    const { data, error } = await dataBase.from('preliminaryProjectEvaluation')
       .select()
       .eq('guideAcademic_userID', userID);
     if (error) { throw error; }

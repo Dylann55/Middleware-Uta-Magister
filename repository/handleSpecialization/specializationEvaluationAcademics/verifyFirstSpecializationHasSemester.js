@@ -6,7 +6,7 @@ class VerifyFirstSpecializationHasSemester {
 
 class VerifyFirstSpecializationHasSemester_SupaBase extends VerifyFirstSpecializationHasSemester {
   async verifyFirstSpecializationHasSemester(dataBase, userID, specializationHasSemesterID) {
-    const { data, error } = await dataBase.from('specializationEvaluationAcademics')
+    const { data, error } = await dataBase.from('preliminaryProjectEvaluation')
       .select()
       .eq('guideAcademic_userID', userID)
       .eq('specializationHasSemesterID', specializationHasSemesterID)

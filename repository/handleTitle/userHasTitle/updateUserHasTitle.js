@@ -5,10 +5,10 @@ class UpdateUserHasTitle {
 }
 
 class UpdateUserHasTitle_SupaBase extends UpdateUserHasTitle {
-  async updateUserHasTitle(dataBase, userHasTitleID, titleID) {
+  async updateUserHasTitle(dataBase, userHasTitleID, titleID, yearTitle) {
     const { error } = await dataBase.from('userHasTitle')
       .update({
-        titleID,
+        titleID, yearTitle,
       })
       .eq('userHasTitleID', userHasTitleID);
     if (error) { throw error; }

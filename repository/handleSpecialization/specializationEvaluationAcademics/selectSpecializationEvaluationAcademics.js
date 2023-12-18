@@ -5,8 +5,8 @@ class SelectSpecializationEvaluationAcademics {
 }
 
 class SelectSpecializationEvaluationAcademics_SupaBase extends SelectSpecializationEvaluationAcademics {
-  async selectSpecializationEvaluationAcademics(dataBase) {
-    const { data, error } = await dataBase.from('specializationEvaluationAcademics')
+  async selectSpecializationEvaluationAcademics(dataBase, table) {
+    const { data, error } = await dataBase.from(table)
       .select();
     if (error) { throw error; }
     return data;
