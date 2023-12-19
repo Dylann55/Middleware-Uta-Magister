@@ -8,6 +8,6 @@ const handleTitleRoute = express.Router();
 
 handleTitleRoute.use('/title', titleRoute);
 handleTitleRoute.use('/userHasTitle', userHasTitleRoute);
-handleTitleRoute.use('bodyAcademic', bodyAcademicRoute);
+handleTitleRoute.use('/bodyAcademic', bodyAcademicRoute);
 
 export default handleTitleRoute;
