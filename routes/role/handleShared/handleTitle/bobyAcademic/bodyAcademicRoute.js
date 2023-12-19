@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable import/extensions */
-import validateDepartamentTitle from '../../../../../validations/handleTitle/userHasTitle/validateYearTitle/validateYearTitle.js';
+import validateInvestigationLine from '../../../../../validations/handleTitle/userHasTitle/validateYearTitle/validateYearTitle.js';
 import {
   express, handleFileUpload, listTitle, listBodyAcademic, createUserHasTitle, createBodyAcademic, updateUserHasTitle, updateBodyAcademic, deleteUserHasTitle, validateUserID, validateTitleID, validateUserHasTitleID, validateArrayUserHasTitleID, validateYearTitle, validateTypeBond, validateBodyAcademicID,
 } from './bodyAcademicModules.js';
@@ -11,8 +11,8 @@ bodyAcademicRoute.get('/title', listTitle);
 
 bodyAcademicRoute.route('/')
   .get(validateUserID, listBodyAcademic)
-  .post(validateUserID, validateTitleID, validateYearTitle, validateDepartamentTitle, validateTypeBond, handleFileUpload, createUserHasTitle, createBodyAcademic)
-  .put(validateUserHasTitleID, validateTitleID, validateYearTitle, validateBodyAcademicID, validateDepartamentTitle, validateTypeBond, updateUserHasTitle, updateBodyAcademic)
+  .post(validateUserID, validateTitleID, validateYearTitle, validateInvestigationLine, validateTypeBond, handleFileUpload, createUserHasTitle, createBodyAcademic)
+  .put(validateUserHasTitleID, validateTitleID, validateYearTitle, validateBodyAcademicID, validateInvestigationLine, validateTypeBond, updateUserHasTitle, updateBodyAcademic)
   .delete(validateArrayUserHasTitleID, deleteUserHasTitle);
 
 export default bodyAcademicRoute;
