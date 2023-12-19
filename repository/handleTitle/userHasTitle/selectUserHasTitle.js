@@ -12,8 +12,8 @@ class SelectUserHasTitle_SupaBase extends SelectUserHasTitle {
       documentTitle,
       formatID,
       titleID,
-      title (name),
-      format (name)
+      title (*),
+      format (*)
       `)
       .eq('userID', userID);
     if (error) { throw error; }

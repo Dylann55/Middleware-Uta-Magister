@@ -5,11 +5,11 @@ import { CreateTitle } from '../../../../../../repository/handleTitle/title/crea
 const createTitle = async (req, res) => {
   const dataBase = req.dataBase;
   const {
-    name, typeID, universityID,
+    name, typeID, universityID, departamentTitle,
   } = req.body;
   const createTitleInstance = new CreateTitle();
   try {
-    await createTitleInstance.createTitle(dataBase, name, typeID, universityID);
+    await createTitleInstance.createTitle(dataBase, name, typeID, universityID, departamentTitle);
     res.status(200).json({ verificationMessage: 'El título fue subido exitosamente' });
   } catch (error) {
     if (error.status === 409) {

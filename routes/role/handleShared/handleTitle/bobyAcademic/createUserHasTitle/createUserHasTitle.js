@@ -1,21 +1,25 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
-import { CreateUserHasTitle } from '../../../../../../repository/handleTitle/userHasTitle/createUserHasTitle.js';
+import { CreateUserHasTitle } from '../../../../../../repository/handleTitle/userHasTitle/bodyAcademic/createUserHasTitle.js';
 import { CreateStorage } from '../../../../../../repository/storage/createStorage.js';
 
-const createUserHasTitle = async (req, res) => {
+const createUserHasTitle = async (req, res, next) => {
   const dataBase = req.dataBase;
   const file = req.file;
   const {
     userID, formatID, titleID, yearTitle,
   } = req.data;
-  const bucketLocation = 'image/Title';
+  const bucketLocation = 'image/AcademicHasTitle';
   const createStorageInstance = new CreateStorage();
   const createUserHasTitleInstance = new CreateUserHasTitle();
   try {
     const documentTitle = await createStorageInstance.createStorage(dataBase, bucketLocation, file);
-    await createUserHasTitleInstance.createUserHasTitle(dataBase, userID, formatID, titleID, documentTitle, yearTitle);
-    res.status(200).json({ verificationMessage: 'El título fue subido exitosamente' });
+    const userHasTitle = await createUserHasTitleInstance.createUserHasTitle(dataBase, userID, formatID, titleID, documentTitle, yearTitle);
+    if (!userHasTitle) {
+      return res.status(400).json({ error: 'No se puedo crear un título para el académico' });
+    }
+    req.data.userHasTitleID = userHasTitle.userHasTitleID;
+    next();
   } catch (error) {
     if (error.status === 409) {
       res.status(409).json({ message: error.message });

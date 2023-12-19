@@ -11,6 +11,7 @@ import validateArrayTitleID from '../../../../../validations/handleTitle/title/v
 import validateName from '../../../../../validations/handleTitle/title/validateName/validateName.js';
 import validateTypeID from '../../../../../validations/handleTitle/title/validateTypeID/validateTypeID.js';
 import validateUniversityID from '../../../../../validations/handleTitle/title/validateUniversityID/validateUniversityID.js';
+import validateDepartamentTitle from '../../../../../validations/handleTitle/title/validateDepartamentTitle/validateDepartamentTitle.js';
 
 export {
   express,
@@ -25,4 +26,5 @@ export {
   validateName,
   validateUniversityID,
   validateTypeID,
+  validateDepartamentTitle,
 };

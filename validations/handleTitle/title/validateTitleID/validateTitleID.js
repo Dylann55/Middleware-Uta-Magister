@@ -1,7 +1,7 @@
 import { body, validationResult } from 'express-validator';
 
-const validateTitleID = [
-  body('titleID').isInt().withMessage('El titleID no es válido'),
+const validateYearTitle = [
+  body('yearTitle').isInt().withMessage('El yearTitle no es válido'),
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -13,4 +13,4 @@ const validateTitleID = [
   },
 ];
 
-export default validateTitleID;
+export default validateYearTitle;

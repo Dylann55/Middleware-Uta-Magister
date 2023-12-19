@@ -1,7 +1,7 @@
 import { body, validationResult } from 'express-validator';
 
-const validateEvaluateID = [
-  body('evaluateID').isInt().withMessage('El evaluateID no es válido'),
+const validateBodyAcademicID = [
+  body('bodyAcademicID').isInt().withMessage('El bodyAcademicID no es válido'),
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -13,4 +13,4 @@ const validateEvaluateID = [
   },
 ];
 
-export default validateEvaluateID;
+export default validateBodyAcademicID;

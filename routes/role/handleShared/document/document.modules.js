@@ -8,10 +8,10 @@ import updateDocument from './updateDocument/updateDocument.js';
 import deleteDocument from './deleteDocument/deleteDocument.js';
 import deleteDocuments from './deleteDocuments/deleteDocuments.js';
 import validateUserID from '../../../../validations/user/validateUserID/validateUserID.js';
-import validateDocumentID from '../../../../validations/storage/document/validateDocumentID/validateDocumentID.js';
-import validateArrayDocumentID from '../../../../validations/storage/document/validateArrayDocumentID/validateArrayDocumentID.js';
-import validateUrl from '../../../../validations/storage/document/validateUrl/validateUrl.js';
-import validateCategory from '../../../../validations/storage/document/validateCategory/validateCategory.js';
+import validateDocumentID from '../../../../validations/document/validateDocumentID/validateDocumentID.js';
+import validateArrayDocumentID from '../../../../validations/document/validateArrayDocumentID/validateArrayDocumentID.js';
+import validateUrl from '../../../../validations/document/validateUrl/validateUrl.js';
+import validateCategory from '../../../../validations/document/validateCategory/validateCategory.js';
 
 export {
   express,

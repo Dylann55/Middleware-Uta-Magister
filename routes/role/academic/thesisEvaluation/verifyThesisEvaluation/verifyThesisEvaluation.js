@@ -8,6 +8,8 @@ const verifyThesisEvaluation = async (req, res, next) => {
   try {
     const data = await verifyThesisEvaluationInstance.verifyThesisEvaluation(dataBase, userID, specializationHasSemesterID);
     if (data) {
+      req.body.userID = data.userID;
+      req.body.specializationHasUserID = data.specializationHasUserID;
       next();
     } else {
       return res.status(409).json({ error: 'Acceso denegado: No cuentas con los permisos requeridos para modificar este proceso de evaluación' });

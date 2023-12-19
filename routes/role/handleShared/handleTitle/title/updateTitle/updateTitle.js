@@ -5,11 +5,11 @@ import { UpdateTitle } from '../../../../../../repository/handleTitle/title/upda
 const updateTitle = async (req, res) => {
   const dataBase = req.dataBase;
   const {
-    titleID, name, typeID, universityID,
+    titleID, name, typeID, universityID, departamentTitle,
   } = req.body;
   const updateTitleInstance = new UpdateTitle();
   try {
-    await updateTitleInstance.updateTitle(dataBase, titleID, name, typeID, universityID);
+    await updateTitleInstance.updateTitle(dataBase, titleID, name, typeID, universityID, departamentTitle);
     res.status(200).json({ verificationMessage: 'Se actualizo exitosamente' });
   } catch (error) {
     if (error.status === 409) {

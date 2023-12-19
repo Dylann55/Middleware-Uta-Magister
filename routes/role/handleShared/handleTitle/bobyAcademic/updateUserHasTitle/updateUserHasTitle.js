@@ -2,7 +2,7 @@
 /* eslint-disable import/extensions */
 import { UpdateUserHasTitle } from '../../../../../../repository/handleTitle/userHasTitle/updateUserHasTitle.js';
 
-const updateUserHasTitle = async (req, res) => {
+const updateUserHasTitle = async (req, res, next) => {
   const dataBase = req.dataBase;
   const {
     userHasTitleID, titleID, yearTitle,
@@ -10,7 +10,7 @@ const updateUserHasTitle = async (req, res) => {
   const updateUserHasTitleInstance = new UpdateUserHasTitle();
   try {
     await updateUserHasTitleInstance.updateUserHasTitle(dataBase, userHasTitleID, titleID, yearTitle);
-    res.status(200).json({ verificationMessage: 'Se actualizo exitosamente' });
+    next();
   } catch (error) {
     if (error.status === 409) {
       res.status(409).json({ message: error.message });
