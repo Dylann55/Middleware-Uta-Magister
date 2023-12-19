@@ -1,8 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable import/extensions */
-import validateInvestigationLine from '../../../../../validations/handleTitle/userHasTitle/validateYearTitle/validateYearTitle.js';
 import {
-  express, handleFileUpload, listTitle, listBodyAcademic, createUserHasTitle, createBodyAcademic, updateUserHasTitle, updateBodyAcademic, deleteUserHasTitle, validateUserID, validateTitleID, validateUserHasTitleID, validateArrayUserHasTitleID, validateYearTitle, validateTypeBond, validateBodyAcademicID,
+  express, handleFileUpload, listTitle, listBodyAcademic, createUserHasTitle, createBodyAcademic, updateUserHasTitle, updateBodyAcademic, deleteUserHasTitle, validateUserID, validateTitleID, validateUserHasTitleID, validateArrayUserHasTitleID, validateYearTitle, validateInvestigationLine, validateTypeBond, validateBodyAcademicID,
 } from './bodyAcademicModules.js';
 
 const bodyAcademicRoute = express.Router();
