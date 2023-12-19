@@ -7,14 +7,14 @@ const createUserHasTitle = async (req, res) => {
   const dataBase = req.dataBase;
   const file = req.file;
   const {
-    userID, formatID, titleID, yearTitle,
+    userID, formatID, titleID, titleYear,
   } = req.data;
   const bucketLocation = 'image/Title';
   const createStorageInstance = new CreateStorage();
   const createUserHasTitleInstance = new CreateUserHasTitle();
   try {
     const documentTitle = await createStorageInstance.createStorage(dataBase, bucketLocation, file);
-    await createUserHasTitleInstance.createUserHasTitle(dataBase, userID, formatID, titleID, documentTitle, yearTitle);
+    await createUserHasTitleInstance.createUserHasTitle(dataBase, userID, formatID, titleID, documentTitle, titleYear);
     res.status(200).json({ verificationMessage: 'El título fue subido exitosamente' });
   } catch (error) {
     if (error.status === 409) {

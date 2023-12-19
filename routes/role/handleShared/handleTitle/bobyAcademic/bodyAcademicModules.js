@@ -13,7 +13,7 @@ import validateUserID from '../../../../../validations/user/validateUserID/valid
 import validateTitleID from '../../../../../validations/handleTitle/title/validateTitleID/validateTitleID.js';
 import validateUserHasTitleID from '../../../../../validations/handleTitle/userHasTitle/validateUserHasTitleID/validateUserHasTitleID.js';
 import validateArrayUserHasTitleID from '../../../../../validations/handleTitle/userHasTitle/validateArrayUserHasTitleID/validateArrayUserHasTitleID.js';
-import validateYearTitle from '../../../../../validations/handleTitle/userHasTitle/validateYearTitle/validateYearTitle.js';
+import validateTitleYear from '../../../../../validations/handleTitle/userHasTitle/validateTitleYear/validateTitleYear.js';
 
 import validateBodyAcademicID from '../../../../../validations/handleTitle/bodyAcademic/validateBodyAcademicID/validateBodyAcademicID.js';
 import validateInvestigationLine from '../../../../../validations/handleTitle/bodyAcademic/validateInvestigationLine/validateInvestigationLine.js';
@@ -33,7 +33,7 @@ export {
   validateTitleID,
   validateUserHasTitleID,
   validateArrayUserHasTitleID,
-  validateYearTitle,
+  validateTitleYear,
   validateBodyAcademicID,
   validateInvestigationLine,
   validateTypeBond,

@@ -7,14 +7,14 @@ const createUserHasTitle = async (req, res, next) => {
   const dataBase = req.dataBase;
   const file = req.file;
   const {
-    userID, formatID, titleID, yearTitle,
+    userID, formatID, titleID, titleYear,
   } = req.data;
   const bucketLocation = 'image/AcademicHasTitle';
   const createStorageInstance = new CreateStorage();
   const createUserHasTitleInstance = new CreateUserHasTitle();
   try {
     const documentTitle = await createStorageInstance.createStorage(dataBase, bucketLocation, file);
-    const userHasTitle = await createUserHasTitleInstance.createUserHasTitle(dataBase, userID, formatID, titleID, documentTitle, yearTitle);
+    const userHasTitle = await createUserHasTitleInstance.createUserHasTitle(dataBase, userID, formatID, titleID, documentTitle, titleYear);
     if (!userHasTitle) {
       return res.status(400).json({ error: 'No se puedo crear un título para el académico' });
     }

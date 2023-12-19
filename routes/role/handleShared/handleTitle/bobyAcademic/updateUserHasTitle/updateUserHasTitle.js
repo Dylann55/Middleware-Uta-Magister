@@ -5,11 +5,11 @@ import { UpdateUserHasTitle } from '../../../../../../repository/handleTitle/use
 const updateUserHasTitle = async (req, res, next) => {
   const dataBase = req.dataBase;
   const {
-    userHasTitleID, titleID, yearTitle,
+    userHasTitleID, titleID, titleYear,
   } = req.body;
   const updateUserHasTitleInstance = new UpdateUserHasTitle();
   try {
-    await updateUserHasTitleInstance.updateUserHasTitle(dataBase, userHasTitleID, titleID, yearTitle);
+    await updateUserHasTitleInstance.updateUserHasTitle(dataBase, userHasTitleID, titleID, titleYear);
     next();
   } catch (error) {
     if (error.status === 409) {
