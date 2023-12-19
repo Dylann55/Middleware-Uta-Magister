@@ -1,7 +1,7 @@
 import { body, validationResult } from 'express-validator';
 
 const validateTitleYear = [
-  body('titleYear').isString().withMessage('El valor de titleYear no es un string'),
+  body('titleYear').isInt().withMessage('El valor de titleYear no es válido'),
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
