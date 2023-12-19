@@ -9,6 +9,7 @@ const updateEvaluationStatus = async (req, res, next) => {
   } = req.body;
   const updateEvaluationStatusInstance = new UpdateEvaluationStatus();
   try {
+    await updateEvaluationStatusInstance.updateEvaluationStatus(dataBase, specializationHasSemesterID, evaluationStatusID);
     if (evaluationStatusID == 4 || evaluationStatusID == 5) {
       req.body.statusID = 7;
       next();
@@ -16,7 +17,6 @@ const updateEvaluationStatus = async (req, res, next) => {
       req.body.statusID = 6;
       next();
     } else {
-      await updateEvaluationStatusInstance.updateEvaluationStatus(dataBase, specializationHasSemesterID, evaluationStatusID);
       res.status(200).json({ verificationMessage: 'Se ha actualizado exitosamente' });
     }
   } catch (error) {
