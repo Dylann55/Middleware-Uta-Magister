@@ -1,14 +1,14 @@
 /* eslint-disable import/extensions */
-import { UpdateStatusID } from '../../../../../repository/handleSpecialization/specializationHasUser/updateStatusID.js';
+import { ApprovalSpecialization } from '../../../../../repository/handleSpecialization/specializationHasUser/approvalSpecialization.js';
 
 const updateSpecializationHasUser = async (req, res) => {
   const dataBase = req.dataBase;
   const {
-    userID, specializationHasUserID, statusID,
+    userID, specializationHasUserID, statusID, semesterID,
   } = req.body;
-  const updateStatusIDInstance = new UpdateStatusID();
+  const approvalSpecializationInstance = new ApprovalSpecialization();
   try {
-    await updateStatusIDInstance.updateStatusID(dataBase, userID, specializationHasUserID, statusID);
+    await approvalSpecializationInstance.approvalSpecialization(dataBase, userID, specializationHasUserID, statusID, semesterID);
     res.status(200).json({ verificationMessage: 'Se actualizo exitosamente' });
   } catch (error) {
     if (error.status === 409) {

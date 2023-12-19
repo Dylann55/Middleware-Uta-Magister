@@ -8,6 +8,7 @@ import updateSpecializationHasUser from './updateSpecializationHasUser/updateSpe
 import updateSpecializationHasSemester from './updateSpecializationHasSemester/updateSpecializationHasSemester.js';
 import validateSpecializationHasSemesterID from '../../../../validations/handleSpecialization/specializationHasSemester/validateSpecializationHasSemesterID/validateSpecializationHasSemesterID.js';
 import validateEvaluationStatusID from '../../../../validations/handleSpecialization/evaluationHasUser/validateEvaluationStatusID/validateEvaluationStatusID.js';
+import validateSemesterID from '../../../../validations/handleSpecialization/semester/validateSemesterID/validateSemesterID.js';
 
 export {
   express,
@@ -19,4 +20,5 @@ export {
   updateSpecializationHasUser,
   validateEvaluationStatusID,
   validateSpecializationHasSemesterID,
+  validateSemesterID,
 };
