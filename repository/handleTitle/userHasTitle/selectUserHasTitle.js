@@ -8,10 +8,7 @@ class SelectUserHasTitle_SupaBase extends SelectUserHasTitle {
   async selectUserHasTitle(dataBase, userID) {
     const { data, error } = await dataBase.from('userHasTitle')
       .select(`
-      userHasTitleID,
-      documentTitle,
-      formatID,
-      titleID,
+      *,
       title (*),
       format (*)
       `)
