@@ -7,20 +7,20 @@ import getUniqueFileName from '../../../../../../repository/storage/getUniqueFil
 
 const deleteBodyAcademic = async (req, res) => {
   const dataBase = req.dataBase;
-  const { academicBodyIDs } = req.body;
+  const { bodyAcademicIDs } = req.body;
   const bucketLocation = 'image';
   const getBodyAcademicInstance = new GetBodyAcademic();
   const deleteStorageInstance = new DeleteStorage();
   const deleteBodyAcademicInstance = new DeleteBodyAcademic();
   try {
-    const documents = await getBodyAcademicInstance.getBodyAcademic(dataBase, academicBodyIDs);
+    const documents = await getBodyAcademicInstance.getBodyAcademic(dataBase, bodyAcademicIDs);
     const deletePromises = documents.map(async (document) => {
       const archive = document.documentTitle;
       const uniqueFileName = `AcademicHasTitle/${getUniqueFileName(archive)}`;
       await deleteStorageInstance.deleteStorage(dataBase, bucketLocation, uniqueFileName);
     });
     await Promise.all(deletePromises);
-    await deleteBodyAcademicInstance.deleteBodyAcademic(dataBase, academicBodyIDs);
+    await deleteBodyAcademicInstance.deleteBodyAcademic(dataBase, bodyAcademicIDs);
 
     res.status(200).json({ verificationMessage: 'Se eliminó exitosamente' });
   } catch (error) {
