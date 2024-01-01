@@ -1,6 +1,6 @@
 import { body, validationResult } from 'express-validator';
 
-const validInvestigationLine = ['educacio y humanidad', 'ingeniería', 'ciencias', 'medicina'];
+const validInvestigationLine = ['educación y humanidad', 'ingeniería', 'ciencias', 'medicina'];
 
 const validateInvestigationLine = [
   body('investigationLine')
