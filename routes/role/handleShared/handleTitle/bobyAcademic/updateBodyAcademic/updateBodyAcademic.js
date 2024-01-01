@@ -5,11 +5,11 @@ import { UpdateBodyAcademic } from '../../../../../../repository/handleTitle/bod
 const updateBodyAcademic = async (req, res) => {
   const dataBase = req.dataBase;
   const {
-    bodyAcademicID, investigationLine, typeBond,
+    bodyAcademicID, investigationLine, typeBond, titleID, titleYear,
   } = req.body;
   const updateBodyAcademicInstance = new UpdateBodyAcademic();
   try {
-    await updateBodyAcademicInstance.updateBodyAcademic(dataBase, bodyAcademicID, investigationLine, typeBond);
+    await updateBodyAcademicInstance.updateBodyAcademic(dataBase, bodyAcademicID, investigationLine, typeBond, titleID, titleYear);
     res.status(200).json({ verificationMessage: 'Se actualizo exitosamente' });
   } catch (error) {
     if (error.status === 409) {

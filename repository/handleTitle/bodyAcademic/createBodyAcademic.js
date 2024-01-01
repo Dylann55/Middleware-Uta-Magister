@@ -5,9 +5,9 @@ class CreateBodyAcademic {
 }
 
 class CreateBodyAcademic_SupaBase extends CreateBodyAcademic {
-  async createBodyAcademic(dataBase, userHasTitleID, investigationLine, typeBond) {
+  async createBodyAcademic(dataBase, documentTitle, userID, formatID, titleID, titleYear, investigationLine, typeBond) {
     const { error } = await dataBase.from('bodyAcademic').insert({
-      userHasTitleID, investigationLine, typeBond,
+      documentTitle, userID, formatID, titleID, titleYear, investigationLine, typeBond,
     });
     if (error) { throw error; }
   }

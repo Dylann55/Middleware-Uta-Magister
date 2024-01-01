@@ -5,10 +5,10 @@ class UpdateBodyAcademic {
 }
 
 class UpdateBodyAcademic_SupaBase extends UpdateBodyAcademic {
-  async updateBodyAcademic(dataBase, bodyAcademicID, investigationLine, typeBond) {
+  async updateBodyAcademic(dataBase, bodyAcademicID, investigationLine, typeBond, titleID, titleYear) {
     const { error } = await dataBase.from('bodyAcademic')
       .update({
-        investigationLine, typeBond,
+        investigationLine, typeBond, titleID, titleYear,
       })
       .eq('bodyAcademicID', bodyAcademicID);
     if (error) { throw error; }
