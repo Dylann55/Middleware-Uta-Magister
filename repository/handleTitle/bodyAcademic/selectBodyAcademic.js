@@ -6,7 +6,7 @@ class SelectBodyAcademic {
 
 class SelectBodyAcademic_SupaBase extends SelectBodyAcademic {
   async selectBodyAcademic(dataBase, userID) {
-    const { data, error } = await dataBase.from('academicHasTitle')
+    const { data, error } = await dataBase.from('bodyAcademic')
       .select(`
       *,
       title (*),
