@@ -1,6 +1,6 @@
 import { body, validationResult } from 'express-validator';
 
-const validDepartamentTitle = ['educacio y humanidad', 'ingeniería', 'ciencias', 'medicina'];
+const validDepartamentTitle = ['educación y humanidad', 'ingeniería', 'ciencias', 'medicina'];
 
 const validateDepartamentTitle = [
   body('departamentTitle')
